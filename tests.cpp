@@ -3,9 +3,10 @@
 #include <iostream>
 
 #include "List.h"
-#include "Node.h"
 
 
+
+// TESTUJE PODSTAWOWE OPERACJE NA LISCIE Z LOSOWO GENEROWANYMI WARTOSCIAMI
 void randomTest(int operation,int times,List<int>& list){
 
     switch(operation) {
@@ -46,21 +47,21 @@ void randomTest(int operation,int times,List<int>& list){
             list.printList();
             break;
 
-        case 3:
-            for (int i = 0; i < times; i++) {
+        case 3: // removeRandom
+        for (int i = 0; i < times; i++) {
                 list.removeRandom();
             }
             list.printList();
             break;
 
-        case 4:
+        case 4: // removeFront
             for (int i = 0; i < times; i++) {
                 list.removeFront();
             }
             list.printList();
             break;
 
-        case 5:
+        case 5: //removeEnd
             for (int i = 0; i < times; i++) {
                 list.removeEnd();
             }
