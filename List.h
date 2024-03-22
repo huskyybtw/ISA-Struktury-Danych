@@ -13,16 +13,25 @@ public:
     bool empty() const;
     const T& first() const;
     const T& last() const;
+    const T& random() const;
 
     void addFront (const T& t);
     void removeFront ();
+
     void addEnd(const T& t);
     void removeEnd();
 
+    void addRandom(const T& t);
+    void removeRandom();
+
     void printList();
+    void printRandom();
+
+    int getSize();
 
 private:
     Node<T>* head;
+    int size;
 };
 
 

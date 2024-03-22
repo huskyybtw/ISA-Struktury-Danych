@@ -1,17 +1,26 @@
 #include <iostream>
 #include "List.h"
-#include "Node.h"
+#include "tests.h"
+
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
     List<int>* mylist = new List<int>();
 
-    for (int i=0 ; i < 10 ; i++) {
-        mylist->addEnd(i);
-    }
-    std::cout<< mylist->last() << std::endl;
 
+    randomTest(0,1000,*mylist);
+    randomTest(1,1000,*mylist);
+    randomTest(2,1000,*mylist);
+    randomTest(3,100,*mylist);
+    randomTest(4,100,*mylist);
+    randomTest(5,1000,*mylist);
+
+
+    std::cout<< "After operations :" << std::endl;
+    mylist->printList();
+
+    std::cout<< "dziala :" << std::endl;
+    std::cout << mylist->getSize()<< std::endl;
     delete mylist;
-
     return 0;
 }
+

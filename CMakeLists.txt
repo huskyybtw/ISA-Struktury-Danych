@@ -9,4 +9,7 @@ add_executable(ISA_Struktury_Danych main.cpp
         List.h
         List.cpp
         Node.cpp
-        Node.h)
+        Node.h
+        tests.cpp
+        tests.h
+)
