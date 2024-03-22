@@ -1,6 +1,11 @@
 #include <iostream>
+#include "List.h"
+#include "tests.h"
+
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    List<int>* mylist = new List<int>();
+    delete mylist;
     return 0;
 }
+
