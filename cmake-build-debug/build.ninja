@@ -73,6 +73,12 @@ build CMakeFiles/ISA_Struktury_Danych.dir/SNode.cpp.obj: CXX_COMPILER__ISA_Struk
   OBJECT_DIR = CMakeFiles\ISA_Struktury_Danych.dir
   OBJECT_FILE_DIR = CMakeFiles\ISA_Struktury_Danych.dir
 
+build CMakeFiles/ISA_Struktury_Danych.dir/DoublyList.cpp.obj: CXX_COMPILER__ISA_Struktury_Danych_unscanned_Debug C$:/Users/marek/CLionProjects/ISA-Struktury-Danych/DoublyList.cpp || cmake_object_order_depends_target_ISA_Struktury_Danych
+  DEP_FILE = CMakeFiles\ISA_Struktury_Danych.dir\DoublyList.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ISA_Struktury_Danych.dir
+  OBJECT_FILE_DIR = CMakeFiles\ISA_Struktury_Danych.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ISA_Struktury_Danych
@@ -81,7 +87,7 @@ build CMakeFiles/ISA_Struktury_Danych.dir/SNode.cpp.obj: CXX_COMPILER__ISA_Struk
 #############################################
 # Link the executable ISA_Struktury_Danych.exe
 
-build ISA_Struktury_Danych.exe: CXX_EXECUTABLE_LINKER__ISA_Struktury_Danych_Debug CMakeFiles/ISA_Struktury_Danych.dir/main.cpp.obj CMakeFiles/ISA_Struktury_Danych.dir/List.cpp.obj CMakeFiles/ISA_Struktury_Danych.dir/tests.cpp.obj CMakeFiles/ISA_Struktury_Danych.dir/SNode.cpp.obj
+build ISA_Struktury_Danych.exe: CXX_EXECUTABLE_LINKER__ISA_Struktury_Danych_Debug CMakeFiles/ISA_Struktury_Danych.dir/main.cpp.obj CMakeFiles/ISA_Struktury_Danych.dir/List.cpp.obj CMakeFiles/ISA_Struktury_Danych.dir/tests.cpp.obj CMakeFiles/ISA_Struktury_Danych.dir/SNode.cpp.obj CMakeFiles/ISA_Struktury_Danych.dir/DoublyList.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ISA_Struktury_Danych.dir

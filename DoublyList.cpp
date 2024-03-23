@@ -1,4 +1,4 @@
-#include "List.h"
+#include "DoublyList.h"
 
 #include <ctime>
 #include <cstddef>
@@ -7,25 +7,28 @@
 
 
 
-template class List<int>; // BLAD Z TEMPLATE'AMI KTOREGO NIE UMIEM NAPRAWIC LISTA DZIALA TYLKO NA INT'ACH
+template class DoublyList<int>; // BLAD Z TEMPLATE'AMI KTOREGO NIE UMIEM NAPRAWIC LISTA DZIALA TYLKO NA INT'ACH
 
 // USTAWIA WSKAZNIK I WIELKOSC STRUKTURY
 template <typename T>
-List<T>::List() : head(NULL) {
+DoublyList<T>::DoublyList() {
+    head = NULL;
+    tail = NULL;
     size = 0;
 }
 
 // USUWA POKOLEI WSZYSTKIE ELEMENTY Z PRZODU
 template <typename T>
-List<T>::~List(){
+DoublyList<T>::~DoublyList(){
     while(!empty()){
         removeFront();
     }
 };
+
 // SPRAWDZA CZY HEAD NA COS WSKAZUJE
 // ZWRACA FALSZ JEZELI LISTA MA JAKIES ELEMENTY
 template <typename T>
-bool List<T>::empty() const{
+bool DoublyList<T>::empty() const{
     if (head == NULL){
         return true;
     }
@@ -34,48 +37,56 @@ bool List<T>::empty() const{
 
 // ZWRACA WARTOSC W PIERWSZEGO WEZLA
 template <typename T>
-const T& List<T>::first() const {
+const T& DoublyList<T>::first() const {
     return head->elem;
 }
 
 // ZWRACA WARTOSC OSTATNIEGO WEZLA
 template <typename T>
-const T& List<T>::last() const{
+const T& DoublyList<T>::last() const{
     if(head == NULL){
         throw std::logic_error("List is empty");
     }
 
-    SNode<T>* temp = head;
-    while(temp->next != NULL){ // PRZESTAWIA WSKAZNIK NA OSTATNI ELEMENT
-        temp = temp->next;
-    }
-
-    return temp->elem;
+    return tail->elem;
 }
 
 // ZWRACA LOSOWY ELEMENT Z PRZEDZIALU OD 0 DO SIZE
 template <typename T>
-const T& List<T>::random() const {
+const T& DoublyList<T>::random() const {
     if(head == NULL){
         throw std::logic_error("List is empty");
     }
 
-    SNode<T>* temp = head;
+    DNode<T>* temp = head;
     std::srand(std::time(nullptr));
     int random = std::rand() % size; // GENERUJE LICZBE Z PRZEDZIALU OD 0 DO SIZE-1
 
-    for(int i=0; i<random; i++){ // PRZESTAWIA WSKAZNIK NA WYGENEROWANY ELEMENT
+    // SPRAWDZA CZY WYGENEROWANY ELEMENT JEST W PIERWSZEJ CZY DRUGIEJ POLOWIE LISTY
+    if(random <= size/2) {
+        for (int i = 0; i < random; i++) { // PRZESTAWIA WSKAZNIK NA WYGENEROWANY ELEMENT
             temp = temp->next;
+        }
     }
+    else{
+        temp = tail;
+        for (int i=size; i > random; i--){ // COFA WSKAZNIK NA WYGENEROWANY ELEMENT
+            temp = temp->prev;
+        }
+    }
+
     return temp->elem;
 }
 
 // DODAJE ELEMENT NA POCZATKU LISTY
 template <typename T>
-void List<T>::addFront(const T& t) {
-    SNode<T>* node = new SNode<T>;
+void DoublyList<T>::addFront(const T& t) {
+    DNode<T>* node = new DNode<T>;
     node->elem = t;
     node->next = head;
+    node->prev = NULL;
+
+    head->prev = node;
     head = node;
 
     size++;
@@ -83,14 +94,10 @@ void List<T>::addFront(const T& t) {
 
 // USUWA ELEMENT Z POCZATKU LISTY
 template<typename T>
-void List<T>::removeFront() {
-    SNode<T>* temp = head;
-    if(temp->next != NULL) {
-        head = temp->next;
-    }
-    else{
-        head = NULL;
-    }
+void DoublyList<T>::removeFront() {
+    DNode<T>* temp = head;
+    head = temp->next;
+    head->prev = NULL;
     delete temp;
 
     size--;
@@ -98,32 +105,33 @@ void List<T>::removeFront() {
 
 // DODAJE ELEMENT NA KONCU LISTY
 template<typename T>
-void List<T>::addEnd(const T& t) {
+void DoublyList<T>::addEnd(const T& t) {
     if(head == NULL){ // JESLI LISTA NIE MA ELEMENTOW
-        SNode<T>* node = new SNode<T>;
+        DNode<T>* node = new DNode<T>;
         node->elem = t;
         node->next = NULL;
+        node->next = NULL;
+        tail = node;
         head = node;
         size++;
         return;
     }
 
-    SNode<T>* temp = head;
-    while(temp->next != NULL){ // PRZESTAWIA WSKAZNIK DOPUKI NIE ZNAJDZIE OSTATNIEGO ELEMENTU
-        temp = temp->next;
-    }
-
-    SNode<T>* node = new SNode<T>;
+    DNode<T>* temp = tail; // USTAWIA WSKANIZK NA KONIEC LISTY
+    DNode<T>* node = new DNode<T>;
     node->elem = t;
     node->next = NULL;
+    node->prev = tail;
 
     temp->next = node;
+    tail = node; // ZMIENIA OSTATNI ELEMENT LISTY NA NOWY WEZEL
+
     size++;
 }
 
 // USUWA OSTATNI ELEMENT
 template<typename T>
-void List<T>::removeEnd(){
+void DoublyList<T>::removeEnd(){
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         return;
     }
@@ -131,14 +139,12 @@ void List<T>::removeEnd(){
     if(head->next == NULL){ // JESLI W LISCIE JEST TYLKO JEDEN ELEMENT
         delete head;
         head = NULL;
+        tail = NULL;
         size--;
         return;
     }
 
-    SNode<T>* temp = head;
-    while(temp->next->next != NULL){ // PRZESTAWIA WSKAZNIK DOPUKI NIE ZNAJDZIE PRZED-OSTATNIEGO ELEMENTU
-        temp = temp->next;
-    }
+    DNode<T>* temp = tail->prev; // USTAWIA WSKAZNIK NA PRZED-OSTATNI ELEMENT
 
     delete temp->next; // USUWA OSTATNI ELEMENT
     temp->next = NULL; // PRZEDOSTATNI ELEMENT STAJE SIE OSTATNIM
@@ -147,14 +153,14 @@ void List<T>::removeEnd(){
 
 // DODAJE ELEMENT PO LOSOWYM ELEMENCIE
 template<typename T>
-void List<T>::addRandom(const T &t) {
+void DoublyList<T>::addRandom(const T &t) {
 
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         this->addFront(t);
         return;
     }
 
-    SNode<T>* temp = head;
+    DNode<T>* temp = head;
     std::srand(std::time(nullptr));
     int random = std::rand() % size; // GENERUJE LICZBE OD O DO SIZE-1
 
@@ -163,60 +169,78 @@ void List<T>::addRandom(const T &t) {
         return;
     }
 
-    for(int i=0; i<random; i++){ // USTAWIA WSKAZNIK NA LOSOWA POZYCJE
-        temp = temp->next;
+    // SPRAWDZA W KTOREJ KTOREJ CZESCI LICZBY ZNAJDUJE SIE WYGENEROWANA LICZBA
+    if(random <= size/2) {
+        for (int i = 0; i < random; i++) { // USTAWIA WSKAZNIK NA LOSOWA POZYCJE
+            temp = temp->next;
+        }
+    }
+    else{
+        temp = tail;
+        for(int i = size; i>random;i--){ // COFA WSKAZNIK NA LOSOWA POZYCJE
+            temp = temp->prev;
+        }
     }
 
-    SNode<T>* node = new SNode<T>;
+    DNode<T>* node = new DNode<T>;
     node->elem = t;
     node->next = temp->next;
+    node->prev = temp;
 
+    // WSTAWIA NOWY WEZEL POMIEDZY DWA WEZLY
     temp->next = node;
+    temp->next->prev = node;
     size++;
 }
 
-// USUWA WEZEL PO LOSOWYM ELEMENCIE
+// USUWA LOSOWY WEZEL
 template<typename T>
-void List<T>::removeRandom() {
+void DoublyList<T>::removeRandom() {
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         return;
     }
 
-    SNode<T>* temp = head;
+    DNode<T>* temp = head;
     std::srand(std::time(nullptr));
     int random = std::rand() % size; // GENERUJE LICZBE OD O DO SIZE-1
 
     if(random == 0){ // JESLI WYLOSOWANO PIERWSZY ELEMENT
         this->removeFront();
-        return;
     }
 
-    for(int i=0; i<random-1; i++){ // PRZESTAWIAMY WSKAZNIK TAK BY POKAZYWAL NA PRZEDOSTATNI ELEMENT
-        temp = temp->next;
+    // SPRAWDZA W KTOREJ CZESCI LISTY ZNAJDUJE SIE ELEMENT
+    if(random <= size/2){
+        for(int i=0; i<random; i++){ // PRZESTAWIAMY WSKAZNIK TAK BY POKAZYWAL NA PRZEDOSTATNI ELEMENT
+            temp = temp->next;
+        }
+    }
+    else{
+        temp = tail;
+        for(int i = size-1; i>random;i--){ // COFA WSKAZNIK NA LOSOWA POZYCJE
+            temp = temp->prev;
+        }
     }
 
-    SNode<T>* temp_next = temp->next; // PRZECHOWUJE WSKAZNIK NA NASTEPNY WEZEL
-
-    if (temp->next->next == NULL){ // JEZELI WYLOSOWALO USUNIECIE OSTATNIEGO WEZLA
-        temp->next = NULL;
-        delete temp_next;
+    if (random == size-1){ // JEZELI WYLOSOWALO USUNIECIE OSTATNIEGO WEZLA
+        temp->prev->next = NULL;
+        delete temp;
         size--;
-        return;
     }
 
-    temp->next = temp->next->next; // PRZESTAWIA WSKAZNIK NA WEZEL ZA USUWANYM WEZLEM
-    delete temp_next; // USUWA WEZEL
+    temp->prev->next = temp->next; // PRZESTAWIA WSKAZNIK NA WEZEL ZA USUWANYM WEZLEM
+    temp->next->prev = temp->prev;
+    delete temp; // USUWA WEZEL
     size--;
 }
 
 // WYPISUJE WYSZYSTKIE WARTOSCI ELEMENT
 template<typename T>
-void List<T>::printList() {
+void DoublyList<T>::printList() {
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         return;
     }
 
-    SNode<T>* temp = head;
+    DNode<T>* temp = head;
     while(temp->next != NULL){ // PRZESTAWIA WSKAZNIK DOPUKI NIE ZNAJDZIE OSTATNIEGO ELEMENTU
         std::cout<< temp->elem << std::endl; // WYPISUJE ELEMENTY
         temp = temp->next;
@@ -226,17 +250,26 @@ void List<T>::printList() {
 
 // WYPISUJE LOSOWY ELEMENT
 template<typename T>
-void List<T>::printRandom() {
+void DoublyList<T>::printRandom() {
     if(head == NULL){
         return;
     }
 
-    SNode<T>* temp = head;
+    DNode<T>* temp = head;
     std::srand(std::time(nullptr));
     int random = std::rand() % size; // GENERUJE LOSOWA LICZBE Z PRZEDZIALO OD 0 DO SIZE-1
 
-    for(int i=0; i<random; i++){ // PRZESTAWIA WSKAZNIK NA LOSOWY ELEMENT
-        temp = temp->next;
+    // SPRAWDZA W KTOREJ CZESCI LISTY ZNAJDUJE SIE ELEMENT
+    if(random <= size/2){
+        for(int i=0; i<random; i++){ // PRZESTAWIAMY WSKAZNIK TAK BY POKAZYWAL NA PRZEDOSTATNI ELEMENT
+            temp = temp->next;
+        }
+    }
+    else{
+        temp = tail;
+        for(int i = size-1; i>random;i--){ // COFA WSKAZNIK NA LOSOWA POZYCJE
+            temp = temp->prev;
+        }
     }
 
     std::cout<< temp->elem << std::endl;
@@ -244,7 +277,7 @@ void List<T>::printRandom() {
 
 // ZWRACA WIELKOSCI LISTY
 template <typename T>
-int List<T>::getSize() {
+int DoublyList<T>::getSize() {
     return size;
 }
 

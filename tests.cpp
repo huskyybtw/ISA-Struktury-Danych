@@ -20,7 +20,6 @@ void randomTest(int operation,int times,List<int>& list){
                 random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
                 list.addFront(random);
             }
-            list.printList();
             break;
 
         case 1: // addEnd
@@ -32,7 +31,6 @@ void randomTest(int operation,int times,List<int>& list){
                 random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
                 list.addEnd(random);
             }
-            list.printList();
             break;
 
         case 2: // addRandom
@@ -44,28 +42,24 @@ void randomTest(int operation,int times,List<int>& list){
                 random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
                 list.addRandom(random);
             }
-            list.printList();
             break;
 
         case 3: // removeRandom
         for (int i = 0; i < times; i++) {
                 list.removeRandom();
             }
-            list.printList();
             break;
 
         case 4: // removeFront
             for (int i = 0; i < times; i++) {
                 list.removeFront();
             }
-            list.printList();
             break;
 
         case 5: //removeEnd
             for (int i = 0; i < times; i++) {
                 list.removeEnd();
             }
-            list.printList();
             break;
     }
 }
