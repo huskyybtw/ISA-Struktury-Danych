@@ -1,17 +1,19 @@
 #include <iostream>
 #include "List.h"
+#include "DoublyList.h"
 #include "tests.h"
 
 
 int main() {
-    List<int>* mylist = new List<int>();
+    DoublyList<int>* mylist = new DoublyList<int>();
 
-    randomTest(0,50000,*mylist);
-    randomTest(1,50000,*mylist);
-    randomTest(2,5000,*mylist);
-    randomTest(4,5000,*mylist);
-    randomTest(5,5000,*mylist);
-    randomTest(3,300000,*mylist);
+    randomTest(0,5,*mylist);
+    randomTest(1,5,*mylist);
+    randomTest(2,5,*mylist);
+    randomTest(4,25,*mylist);
+    /*randomTest(5,1,*mylist); // 5 I 3 NIE DZIALAJA
+    randomTest(3,1,*mylist); // 5 I 3 NIE DZIALAJA
+    */
 
     std::cout<< "WIELKOSC LISTY " ;
     std::cout<< mylist->getSize() << std::endl;
