@@ -3,11 +3,12 @@
 #include <iostream>
 
 #include "List.h"
+#include "DoublyList.h"
 
 
 
 // TESTUJE PODSTAWOWE OPERACJE NA LISCIE Z LOSOWO GENEROWANYMI WARTOSCIAMI
-void randomTest(int operation,int times,List<int>& list){
+void randomTest(int operation,int times,DoublyList<int>& list){
 
     switch(operation) {
         case 0: // addFront
@@ -45,18 +46,21 @@ void randomTest(int operation,int times,List<int>& list){
             break;
 
         case 3: // removeRandom
+            std::cout << "removeRANDOM TEST :" << std::endl;
         for (int i = 0; i < times; i++) {
                 list.removeRandom();
             }
             break;
 
         case 4: // removeFront
+            std::cout << "removeFront TEST :" << std::endl;
             for (int i = 0; i < times; i++) {
                 list.removeFront();
             }
             break;
 
         case 5: //removeEnd
+            std::cout << "removeEnd TEST :" << std::endl;
             for (int i = 0; i < times; i++) {
                 list.removeEnd();
             }

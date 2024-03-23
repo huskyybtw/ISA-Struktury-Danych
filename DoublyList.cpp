@@ -81,12 +81,24 @@ const T& DoublyList<T>::random() const {
 // DODAJE ELEMENT NA POCZATKU LISTY
 template <typename T>
 void DoublyList<T>::addFront(const T& t) {
+    if (head == NULL){ // JESLI LISTA NIE MA ELEMENTOW
+        DNode<T>* node = new DNode<T>;
+        node->elem = t;
+        node->next = NULL;
+        node->prev = NULL;
+        tail = node;
+        head = node;
+        size++;
+        return;
+    }
+
+    // JESLI LISTA MA ELEMENTY
     DNode<T>* node = new DNode<T>;
     node->elem = t;
     node->next = head;
     node->prev = NULL;
 
-    head->prev = node;
+    head->prev = node; //  BYL BLAD NIE MOZNA NULL->prev;
     head = node;
 
     size++;
@@ -95,11 +107,19 @@ void DoublyList<T>::addFront(const T& t) {
 // USUWA ELEMENT Z POCZATKU LISTY
 template<typename T>
 void DoublyList<T>::removeFront() {
+    if(head == NULL){ // JESLI LISTA JEST PUSTA
+        return;
+    }
     DNode<T>* temp = head;
-    head = temp->next;
-    head->prev = NULL;
+    if(temp->next != NULL) { // JESLI JEST WIECEJ NIZ JEDEN ELEMENT
+        head = temp->next;
+        head->prev = NULL;
+    }
+    else{
+        head = NULL;
+        tail = NULL;
+    }
     delete temp;
-
     size--;
 }
 
@@ -110,20 +130,19 @@ void DoublyList<T>::addEnd(const T& t) {
         DNode<T>* node = new DNode<T>;
         node->elem = t;
         node->next = NULL;
-        node->next = NULL;
+        node->prev = NULL;
         tail = node;
         head = node;
         size++;
         return;
     }
 
-    DNode<T>* temp = tail; // USTAWIA WSKANIZK NA KONIEC LISTY
     DNode<T>* node = new DNode<T>;
     node->elem = t;
     node->next = NULL;
     node->prev = tail;
 
-    temp->next = node;
+    tail->next = node;
     tail = node; // ZMIENIA OSTATNI ELEMENT LISTY NA NOWY WEZEL
 
     size++;
@@ -146,8 +165,9 @@ void DoublyList<T>::removeEnd(){
 
     DNode<T>* temp = tail->prev; // USTAWIA WSKAZNIK NA PRZED-OSTATNI ELEMENT
 
-    delete temp->next; // USUWA OSTATNI ELEMENT
+    delete tail; // USUWA OSTATNI ELEMENT
     temp->next = NULL; // PRZEDOSTATNI ELEMENT STAJE SIE OSTATNIM
+    tail = temp; // USTAWIA KONIEC LISTY NA OSTATNI ELEMENT
     size--;
 }
 
@@ -206,6 +226,7 @@ void DoublyList<T>::removeRandom() {
 
     if(random == 0){ // JESLI WYLOSOWANO PIERWSZY ELEMENT
         this->removeFront();
+        return;
     }
 
     // SPRAWDZA W KTOREJ CZESCI LISTY ZNAJDUJE SIE ELEMENT
@@ -225,6 +246,7 @@ void DoublyList<T>::removeRandom() {
         temp->prev->next = NULL;
         delete temp;
         size--;
+        return;
     }
 
     temp->prev->next = temp->next; // PRZESTAWIA WSKAZNIK NA WEZEL ZA USUWANYM WEZLEM

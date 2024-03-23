@@ -84,6 +84,9 @@ void List<T>::addFront(const T& t) {
 // USUWA ELEMENT Z POCZATKU LISTY
 template<typename T>
 void List<T>::removeFront() {
+    if(head == NULL){ // JESLI LISTA JEST PUSTA
+        return;
+    }
     SNode<T>* temp = head;
     if(temp->next != NULL) {
         head = temp->next;
