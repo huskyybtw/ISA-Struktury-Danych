@@ -12,4 +12,7 @@ add_executable(ISA_Struktury_Danych main.cpp
         tests.h
         SNode.cpp
         SNode.h
+        DoublyList.cpp
+        DoublyList.h
+        DNode.h
 )

@@ -84,8 +84,16 @@ void List<T>::addFront(const T& t) {
 // USUWA ELEMENT Z POCZATKU LISTY
 template<typename T>
 void List<T>::removeFront() {
+    if(head == NULL){ // JESLI LISTA JEST PUSTA
+        return;
+    }
     SNode<T>* temp = head;
-    head = temp->next;
+    if(temp->next != NULL) {
+        head = temp->next;
+    }
+    else{
+        head = NULL;
+    }
     delete temp;
 
     size--;
@@ -179,23 +187,24 @@ void List<T>::removeRandom() {
 
     SNode<T>* temp = head;
     std::srand(std::time(nullptr));
-    int random = std::rand() % size-1; // GENERUJE LICZBE OD O DO SIZE-2
-                                        // PONIEWAZ MOZEMY PRZESUNAC WSKAZNIK O JEDEN RAZ MNIEJ
+    int random = std::rand() % size; // GENERUJE LICZBE OD O DO SIZE-1
 
     if(random == 0){ // JESLI WYLOSOWANO PIERWSZY ELEMENT
         this->removeFront();
+        return;
     }
 
-    for(int i=0; i<random; i++){ // PRZESTAWIAMY WSKAZNIK TAK BY POKAZYWAL NA PRZEDOSTATNI ELEMENT
+    for(int i=0; i<random-1; i++){ // PRZESTAWIAMY WSKAZNIK TAK BY POKAZYWAL NA PRZEDOSTATNI ELEMENT
         temp = temp->next;
     }
 
     SNode<T>* temp_next = temp->next; // PRZECHOWUJE WSKAZNIK NA NASTEPNY WEZEL
 
-    if (random == size-2){ // JEZELI WYLOSOWALO USUNIECIE OSTATNIEGO WEZLA
+    if (temp->next->next == NULL){ // JEZELI WYLOSOWALO USUNIECIE OSTATNIEGO WEZLA
         temp->next = NULL;
         delete temp_next;
         size--;
+        return;
     }
 
     temp->next = temp->next->next; // PRZESTAWIA WSKAZNIK NA WEZEL ZA USUWANYM WEZLEM

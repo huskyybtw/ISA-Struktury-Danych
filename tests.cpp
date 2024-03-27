@@ -3,11 +3,12 @@
 #include <iostream>
 
 #include "List.h"
+#include "DoublyList.h"
 
 
 
 // TESTUJE PODSTAWOWE OPERACJE NA LISCIE Z LOSOWO GENEROWANYMI WARTOSCIAMI
-void randomTest(int operation,int times,List<int>& list){
+void randomTest(int operation,int times,DoublyList<int>& list){
 
     switch(operation) {
         case 0: // addFront
@@ -20,7 +21,6 @@ void randomTest(int operation,int times,List<int>& list){
                 random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
                 list.addFront(random);
             }
-            list.printList();
             break;
 
         case 1: // addEnd
@@ -32,7 +32,6 @@ void randomTest(int operation,int times,List<int>& list){
                 random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
                 list.addEnd(random);
             }
-            list.printList();
             break;
 
         case 2: // addRandom
@@ -44,28 +43,27 @@ void randomTest(int operation,int times,List<int>& list){
                 random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
                 list.addRandom(random);
             }
-            list.printList();
             break;
 
         case 3: // removeRandom
+            std::cout << "removeRANDOM TEST :" << std::endl;
         for (int i = 0; i < times; i++) {
                 list.removeRandom();
             }
-            list.printList();
             break;
 
         case 4: // removeFront
+            std::cout << "removeFront TEST :" << std::endl;
             for (int i = 0; i < times; i++) {
                 list.removeFront();
             }
-            list.printList();
             break;
 
         case 5: //removeEnd
+            std::cout << "removeEnd TEST :" << std::endl;
             for (int i = 0; i < times; i++) {
                 list.removeEnd();
             }
-            list.printList();
             break;
     }
 }
