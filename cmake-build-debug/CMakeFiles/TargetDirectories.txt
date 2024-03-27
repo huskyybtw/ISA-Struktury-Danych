@@ -1,3 +1,3 @@
-C:/Users/marek/CLionProjects/ISA-Struktury-Danych/cmake-build-debug/CMakeFiles/ISA_Struktury_Danych.dir
-C:/Users/marek/CLionProjects/ISA-Struktury-Danych/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/marek/CLionProjects/ISA-Struktury-Danych/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/bart2/CLionProjects/ISA-Struktury-Danych/cmake-build-debug/CMakeFiles/ISA_Struktury_Danych.dir
+C:/Users/bart2/CLionProjects/ISA-Struktury-Danych/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/bart2/CLionProjects/ISA-Struktury-Danych/cmake-build-debug/CMakeFiles/rebuild_cache.dir
