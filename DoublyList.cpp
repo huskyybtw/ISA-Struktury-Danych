@@ -226,33 +226,36 @@ void DoublyList<T>::removeRandom() {
         return;
     }
 
+    if(head->next->next == NULL){ // JESLI SA TYLKO DWA ELEMENTY SIZE=2
+        this->removeEnd();
+    }
+
     DNode<T>* temp = head;
     std::srand(std::time(nullptr));
-    int random = std::rand() % size; // GENERUJE LICZBE OD O DO SIZE-1
+    int random = std::rand() % (size+1); // GENERUJE LICZBE OD O DO SIZE
 
-    if(random == 0){ // JESLI WYLOSOWANO PIERWSZY ELEMENT
+    if(random == 0){
         this->removeFront();
         return;
     }
 
-    // SPRAWDZA W KTOREJ CZESCI LISTY ZNAJDUJE SIE ELEMENT
-    if(random <= size/2){
-        for(int i=0; i<random; i++){ // PRZESTAWIAMY WSKAZNIK TAK BY POKAZYWAL NA PRZEDOSTATNI ELEMENT
+    if(random == size){ // JESLI DODAJE NA OSTATNIM ELEMENCIE
+        this->removeEnd();
+        return;
+    }
+
+    int distanceFromEnd = size - random;
+    // SPRAWDZA W KTOREJ KTOREJ CZESCI LICZBY ZNAJDUJE SIE WYGENEROWANA LICZBA
+    if(distanceFromEnd >=  random) {
+        for (int i = 0; i < random ; i++) { // USTAWIA WSKAZNIK NA LOSOWA POZYCJE
             temp = temp->next;
         }
     }
     else{
         temp = tail;
-        for(int i = size-1; i>random;i--){ // COFA WSKAZNIK NA LOSOWA POZYCJE
+        for(int i = 0; i < distanceFromEnd ;i++){ // COFA WSKAZNIK NA LOSOWA POZYCJE
             temp = temp->prev;
         }
-    }
-
-    if (random == size-1){ // JEZELI WYLOSOWALO USUNIECIE OSTATNIEGO WEZLA
-        temp->prev->next = NULL;
-        delete temp;
-        size--;
-        return;
     }
 
     temp->prev->next = temp->next; // PRZESTAWIA WSKAZNIK NA WEZEL ZA USUWANYM WEZLEM
