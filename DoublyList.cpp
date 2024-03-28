@@ -148,6 +148,54 @@ void DoublyList<T>::addEnd(const T& t) {
     size++;
 }
 
+// DODAJE ELEMENT PO LOSOWYM ELEMENCIE
+template<typename T>
+void DoublyList<T>::addRandom(const T &t) {
+
+    if(head == NULL){ // JESLI LISTA JEST PUSTA
+        this->addFront(t);
+        return;
+    }
+
+    DNode<T>* temp = head;
+    std::srand(std::time(nullptr));
+    int random = std::rand() % (size+1); // GENERUJE LICZBE OD O DO SIZE
+
+    if(random == 0){
+        this->addFront(t);
+        return;
+    }
+
+    if(random == size){ // JESLI DODAJE NA OSTATNIM ELEMENCIE
+        this->addEnd(t);
+        return;
+    }
+
+    int distanceFromEnd = size - random;
+    // SPRAWDZA W KTOREJ KTOREJ CZESCI LICZBY ZNAJDUJE SIE WYGENEROWANA LICZBA
+    if(distanceFromEnd >=  random) {
+        for (int i = 1; i < random ; i++) { // USTAWIA WSKAZNIK NA LOSOWA POZYCJE
+            temp = temp->next;
+        }
+    }
+    else{
+        temp = tail;
+        for(int i = 0; i < distanceFromEnd ;i++){ // COFA WSKAZNIK NA LOSOWA POZYCJE
+            temp = temp->prev;
+        }
+    }
+
+    DNode<T>* node = new DNode<T>;
+    node->elem = t;
+    node->next = temp->next;
+    node->prev = temp;
+
+    // WSTAWIA NOWY WEZEL POMIEDZY DWA WEZLY
+    temp->next->prev = node;
+    temp->next = node;
+    size++;
+}
+
 // USUWA OSTATNI ELEMENT
 template<typename T>
 void DoublyList<T>::removeEnd(){
@@ -165,52 +213,10 @@ void DoublyList<T>::removeEnd(){
 
     DNode<T>* temp = tail->prev; // USTAWIA WSKAZNIK NA PRZED-OSTATNI ELEMENT
 
-    delete tail; // USUWA OSTATNI ELEMENT
+    delete temp->next; // USUWA OSTATNI ELEMENT
     temp->next = NULL; // PRZEDOSTATNI ELEMENT STAJE SIE OSTATNIM
     tail = temp; // USTAWIA KONIEC LISTY NA OSTATNI ELEMENT
     size--;
-}
-
-// DODAJE ELEMENT PO LOSOWYM ELEMENCIE
-template<typename T>
-void DoublyList<T>::addRandom(const T &t) {
-
-    if(head == NULL){ // JESLI LISTA JEST PUSTA
-        this->addFront(t);
-        return;
-    }
-
-    DNode<T>* temp = head;
-    std::srand(std::time(nullptr));
-    int random = std::rand() % size; // GENERUJE LICZBE OD O DO SIZE-1
-
-    if(random == size-1){ // JESLI DODAJE NA OSTATNIM ELEMENCIE
-        this->addEnd(t);
-        return;
-    }
-
-    // SPRAWDZA W KTOREJ KTOREJ CZESCI LICZBY ZNAJDUJE SIE WYGENEROWANA LICZBA
-    if(random <= size/2) {
-        for (int i = 0; i < random; i++) { // USTAWIA WSKAZNIK NA LOSOWA POZYCJE
-            temp = temp->next;
-        }
-    }
-    else{
-        temp = tail;
-        for(int i = size; i>random;i--){ // COFA WSKAZNIK NA LOSOWA POZYCJE
-            temp = temp->prev;
-        }
-    }
-
-    DNode<T>* node = new DNode<T>;
-    node->elem = t;
-    node->next = temp->next;
-    node->prev = temp;
-
-    // WSTAWIA NOWY WEZEL POMIEDZY DWA WEZLY
-    temp->next = node;
-    temp->next->prev = node;
-    size++;
 }
 
 // USUWA LOSOWY WEZEL
@@ -220,33 +226,36 @@ void DoublyList<T>::removeRandom() {
         return;
     }
 
+    if(head->next->next == NULL){ // JESLI SA TYLKO DWA ELEMENTY SIZE=2
+        this->removeEnd();
+    }
+
     DNode<T>* temp = head;
     std::srand(std::time(nullptr));
-    int random = std::rand() % size; // GENERUJE LICZBE OD O DO SIZE-1
+    int random = std::rand() % (size+1); // GENERUJE LICZBE OD O DO SIZE
 
-    if(random == 0){ // JESLI WYLOSOWANO PIERWSZY ELEMENT
+    if(random == 0){
         this->removeFront();
         return;
     }
 
-    // SPRAWDZA W KTOREJ CZESCI LISTY ZNAJDUJE SIE ELEMENT
-    if(random <= size/2){
-        for(int i=0; i<random; i++){ // PRZESTAWIAMY WSKAZNIK TAK BY POKAZYWAL NA PRZEDOSTATNI ELEMENT
+    if(random == size){ // JESLI DODAJE NA OSTATNIM ELEMENCIE
+        this->removeEnd();
+        return;
+    }
+
+    int distanceFromEnd = size - random;
+    // SPRAWDZA W KTOREJ KTOREJ CZESCI LICZBY ZNAJDUJE SIE WYGENEROWANA LICZBA
+    if(distanceFromEnd >=  random) {
+        for (int i = 0; i < random ; i++) { // USTAWIA WSKAZNIK NA LOSOWA POZYCJE
             temp = temp->next;
         }
     }
     else{
         temp = tail;
-        for(int i = size-1; i>random;i--){ // COFA WSKAZNIK NA LOSOWA POZYCJE
+        for(int i = 0; i < distanceFromEnd ;i++){ // COFA WSKAZNIK NA LOSOWA POZYCJE
             temp = temp->prev;
         }
-    }
-
-    if (random == size-1){ // JEZELI WYLOSOWALO USUNIECIE OSTATNIEGO WEZLA
-        temp->prev->next = NULL;
-        delete temp;
-        size--;
-        return;
     }
 
     temp->prev->next = temp->next; // PRZESTAWIA WSKAZNIK NA WEZEL ZA USUWANYM WEZLEM
@@ -259,6 +268,7 @@ void DoublyList<T>::removeRandom() {
 template<typename T>
 void DoublyList<T>::printList() {
     if(head == NULL){ // JESLI LISTA JEST PUSTA
+        std::cout << "List is empty" << std::endl;
         return;
     }
 

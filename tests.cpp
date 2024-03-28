@@ -18,7 +18,7 @@ void randomTest(int operation,int times,DoublyList<int>& list){
 
             for (int i = 0; i < times; i++) {
                 int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
+                random = random + (i*10); // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
                 list.addFront(random);
             }
             break;
