@@ -228,6 +228,7 @@ void DoublyList<T>::removeRandom() {
 
     if(head->next->next == NULL){ // JESLI SA TYLKO DWA ELEMENTY SIZE=2
         this->removeEnd();
+        return;
     }
 
     DNode<T>* temp = head;
