@@ -8,33 +8,31 @@ class ArrayList{
 
 public:
 
-    ArrayList(); //Konstruktor
-    ~ArrayList(); //Destruktor
+    ArrayList(); // Konstruktor
+    ~ArrayList(); // Destruktor
 
-    void addFront (const T &t); // DODAJE ELEMENT Z PRZODU LISTY
-    void removeFront (); // USUWA ELEMENT Z PRZODU LISTY
+    void addFront (const T &t); // Dodaje element na poczatku tablicy
+    void removeFront (); // Usuwa element na poczatku tablicy
 
-    void addEnd(const T &t); // DODAJE ELEMENT Z KONCA LISTY
-    void removeEnd(); // USUWA ELEMENT Z KONCA LISTY
+    void addEnd(const T &t); // Dodaje element na koncu tablicy
+    void removeEnd(); // Usuwa element na koncu tablicy
 
-    void addRandom(const T &t); // DODAJE ELEMENT PO LOSOWYM ELEMENCIE
-    void removeRandom(); // USUWA ELEMENT PO LOSOWYM ELEMENCIE
+    void addRandom(const T &t); // Dodaje element w losowym miejscu tablicy
+    void removeRandom(); // Usuwa element w losowym miejscu tablicy
 
-    void printList(); // WYPISUJE WYSZTKIE ELEMENTY LISTY
-    void printRandom(); // WYPISUJE LOSOWY ELEMENT LISTY
+    void printList(); // Wypisuje wszystkie elementy z tablicy
+    void printRandom(); // Wypisuje losowy element z tablicy
 
-    int getSize(); // ZWRACA WIELKOSC LISTY
-
-    bool isEmpty();
+ //   bool isEmpty(); // Sprawdza czy tablica jest pusta
 
 
 private:
 
-    T *data = nullptr; //wskaznik na tablice
-    int arraySize; // dlugosc tablicy
-    int size; // ilosc elementow w tablicy
-    void resize(); // powiekszyc tablice jesli konieczne
-    bool needtoresize(); // sprawdza czy trzeba powiekszyc tablice
+    T *data = nullptr; // Wskaznik na tablice
+    int arraySize; // Dlugosc tablicy
+    int size; // Ilosc elementow w tablicy
+    void resize(); // Powieksza tablice jesli to konieczne
+    bool needtoresize(); // Sprawdza czy trzeba powiekszyc tablice
 
 
 };
