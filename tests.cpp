@@ -18,7 +18,7 @@ void randomTest(int operation,int times,ArrayList<int>& list){
 
             for (int i = 0; i < times; i++) {
                 int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
+               // random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
                 list.addFront(random);
             }
             break;
@@ -29,7 +29,7 @@ void randomTest(int operation,int times,ArrayList<int>& list){
 
             for (int i = 0; i < times; i++) {
                 int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
+               // random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
                 list.addEnd(random);
             }
             break;
@@ -40,7 +40,7 @@ void randomTest(int operation,int times,ArrayList<int>& list){
 
             for (int i = 0; i < times; i++) {
                 int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
+               // random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
                 list.addRandom(random);
             }
             break;
