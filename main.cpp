@@ -6,18 +6,27 @@
 
 int main() {
 
-    ArrayList<int> lista;
-    lista.addFront(1);
-    lista.addEnd(2);
-    lista.addEnd(55);
-    lista.addFront(43);
-    lista.addFront(33);
-    lista.addFront(877);
+   // ArrayList<int> lista;
+
+    ArrayList<int>* lista = new ArrayList<int>();
+    randomTest(1,100,*lista);
+    randomTest(1,100,*lista);
+    randomTest(2,100,*lista);
+    randomTest(2,100,*lista);
+    randomTest(2,100,*lista);
+   // randomTest(0,100,*lista);
+  //  randomTest(1,100,*lista);
+  //  randomTest(2,100,*lista);
+    //randomTest(2,100,*lista);
+    randomTest(3,100,*lista);
+    randomTest(4,100,*lista);
+    randomTest(5,100,*lista);
+
   //  lista.removeEnd();
   //  lista.removeFront();
   //  lista.removeRandom();
-  lista.addRandom(66);
-    lista.printList();
+
+    lista->printList();
  return 0;
 }
 

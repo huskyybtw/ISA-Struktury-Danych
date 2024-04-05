@@ -4,11 +4,11 @@
 
 #include "List.h"
 #include "DoublyList.h"
-
+#include "ArrayList.h"
 
 
 // TESTUJE PODSTAWOWE OPERACJE NA LISCIE Z LOSOWO GENEROWANYMI WARTOSCIAMI
-void randomTest(int operation,int times,DoublyList<int>& list){
+void randomTest(int operation,int times,ArrayList<int>& list){
 
     switch(operation) {
         case 0: // addFront

@@ -27,6 +27,7 @@ public:
 
     bool isEmpty();
 
+
 private:
 
     T *data = nullptr; //wskaznik na tablice
