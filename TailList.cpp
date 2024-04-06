@@ -1,4 +1,4 @@
-#include "List.h"
+#include "TailList.h"
 
 #include <ctime>
 #include <cstddef>
@@ -11,7 +11,7 @@ template class TailList<int>; // BLAD Z TEMPLATE'AMI KTOREGO NIE UMIEM NAPRAWIC 
 
 // USTAWIA WSKAZNIK I WIELKOSC STRUKTURY
 template <typename T>
-TailList<T>::TailList() : head(NULL) {
+TailList<T>::TailList() : head(NULL), tail(NULL) {
     size = 0;
 }
 
@@ -45,12 +45,7 @@ const T& TailList<T>::last() const{
         throw std::logic_error("TailList is empty");
     }
 
-    SNode<T>* temp = head;
-    while(temp->next != NULL){ // PRZESTAWIA WSKAZNIK NA OSTATNI ELEMENT
-        temp = temp->next;
-    }
-
-    return temp->elem;
+    return tail->elem;
 }
 
 // ZWRACA LOSOWY ELEMENT Z PRZEDZIALU OD 0 DO SIZE
@@ -65,7 +60,7 @@ const T& TailList<T>::random() const {
     int random = std::rand() % size; // GENERUJE LICZBE Z PRZEDZIALU OD 0 DO SIZE-1
 
     for(int i=0; i<random; i++){ // PRZESTAWIA WSKAZNIK NA WYGENEROWANY ELEMENT
-            temp = temp->next;
+        temp = temp->next;
     }
     return temp->elem;
 }
@@ -73,6 +68,16 @@ const T& TailList<T>::random() const {
 // DODAJE ELEMENT NA POCZATKU LISTY
 template <typename T>
 void TailList<T>::addFront(const T& t) {
+    if (head == NULL){
+        SNode<T>* node = new SNode<T>;
+        node->elem = t;
+        node->next = head;
+        head = node;
+        tail = node;
+        size++;
+        return;
+    }
+
     SNode<T>* node = new SNode<T>;
     node->elem = t;
     node->next = head;
@@ -93,6 +98,7 @@ void TailList<T>::removeFront() {
     }
     else{
         head = NULL;
+        tail = NULL;
     }
     delete temp;
 
@@ -107,12 +113,13 @@ void TailList<T>::addEnd(const T& t) {
         node->elem = t;
         node->next = NULL;
         head = node;
+        tail = node;
         size++;
         return;
     }
 
     SNode<T>* temp = head;
-    while(temp->next != NULL){ // PRZESTAWIA WSKAZNIK DOPUKI NIE ZNAJDZIE OSTATNIEGO ELEMENTU
+    while(temp->next != NULL){ // PRZESTAWIA WSKAZNIK DOPOKI NIE ZNAJDZIE OSTATNIEGO ELEMENTU
         temp = temp->next;
     }
 
@@ -121,6 +128,7 @@ void TailList<T>::addEnd(const T& t) {
     node->next = NULL;
 
     temp->next = node;
+    tail = node;
     size++;
 }
 
@@ -134,17 +142,19 @@ void TailList<T>::removeEnd(){
     if(head->next == NULL){ // JESLI W LISCIE JEST TYLKO JEDEN ELEMENT
         delete head;
         head = NULL;
+        tail = NULL;
         size--;
         return;
     }
 
-    SNode<T>* temp = head;
-    while(temp->next->next != NULL){ // PRZESTAWIA WSKAZNIK DOPUKI NIE ZNAJDZIE PRZED-OSTATNIEGO ELEMENTU
-        temp = temp->next;
+        SNode<T>* temp = head;
+         while(temp->next != tail){ // PRZESTAWIA WSKAZNIK DOPOKI NIE ZNAJDZIE PRZEDOSTATNIEGO ELEMENTU
+         temp = temp->next;
     }
 
-    delete temp->next; // USUWA OSTATNI ELEMENT
-    temp->next = NULL; // PRZEDOSTATNI ELEMENT STAJE SIE OSTATNIM
+    delete tail;  // USUWA OSTATNI ELEMENT
+    tail = temp;  // PRZEDOSTATNI ELEMENT STAJE SIE OSTATNIM
+    tail->next = NULL; // AKTUALIZACJA WSKAZNIKA NEXT OSTATNIEGO ELEMENTU
     size--;
 }
 
@@ -175,6 +185,9 @@ void TailList<T>::addRandom(const T &t) {
     node->next = temp->next;
 
     temp->next = node;
+
+    if (temp == tail) // JESLI DODAJEMY NA PRZEDOSTATNIM ELEMENCIE
+        tail = node;
     size++;
 }
 
@@ -194,22 +207,23 @@ void TailList<T>::removeRandom() {
         return;
     }
 
-    for(int i=0; i<random-1; i++){ // PRZESTAWIAMY WSKAZNIK TAK BY POKAZYWAL NA PRZEDOSTATNI ELEMENT
+    if (random == size - 1){    //JESLI WYLOSOWANO OSTATNI ELEMENT
+        this->removeEnd();
+        return;
+    }
+
+    for(int i=0; i<random-1; i++){ // PRZESTAWIAMY WSKAZNIK TAK BY POKAZYWAL NA PRZEDOSTATNI ELEMENT LOSOWY
         temp = temp->next;
     }
 
     SNode<T>* temp_next = temp->next; // PRZECHOWUJE WSKAZNIK NA NASTEPNY WEZEL
 
-    if (temp->next->next == NULL){ // JEZELI WYLOSOWALO USUNIECIE OSTATNIEGO WEZLA
-        temp->next = NULL;
-        delete temp_next;
-        size--;
-        return;
-    }
-
     temp->next = temp->next->next; // PRZESTAWIA WSKAZNIK NA WEZEL ZA USUWANYM WEZLEM
     delete temp_next; // USUWA WEZEL
     size--;
+
+    if (temp->next == NULL) // JESLI USUWANY BYL OSTATNI ELEMENT AKTUALIZUJE TAIL
+        tail = temp;
 }
 
 // WYPISUJE WYSZYSTKIE WARTOSCI ELEMENT
@@ -220,7 +234,7 @@ void TailList<T>::printList() {
     }
 
     SNode<T>* temp = head;
-    while(temp->next != NULL){ // PRZESTAWIA WSKAZNIK DOPUKI NIE ZNAJDZIE OSTATNIEGO ELEMENTU
+    while(temp->next != NULL){ // PRZESTAWIA WSKAZNIK DOPOKI NIE ZNAJDZIE OSTATNIEGO ELEMENTU
         std::cout<< temp->elem << std::endl; // WYPISUJE ELEMENTY
         temp = temp->next;
     }

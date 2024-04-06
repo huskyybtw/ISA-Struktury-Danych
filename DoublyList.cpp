@@ -45,7 +45,7 @@ const T& DoublyList<T>::first() const {
 template <typename T>
 const T& DoublyList<T>::last() const{
     if(head == NULL){
-        throw std::logic_error("List is empty");
+        throw std::logic_error("TailList is empty");
     }
 
     return tail->elem;
@@ -55,7 +55,7 @@ const T& DoublyList<T>::last() const{
 template <typename T>
 const T& DoublyList<T>::random() const {
     if(head == NULL){
-        throw std::logic_error("List is empty");
+        throw std::logic_error("TailList is empty");
     }
 
     DNode<T>* temp = head;
@@ -269,7 +269,7 @@ void DoublyList<T>::removeRandom() {
 template<typename T>
 void DoublyList<T>::printList() {
     if(head == NULL){ // JESLI LISTA JEST PUSTA
-        std::cout << "List is empty" << std::endl;
+        std::cout << "TailList is empty" << std::endl;
         return;
     }
 
