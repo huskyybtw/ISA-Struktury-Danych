@@ -23,6 +23,8 @@ public:
     void printList(); // Wypisuje wszystkie elementy z tablicy
     void printRandom(); // Wypisuje losowy element z tablicy
 
+    int getSize();
+
  //   bool isEmpty(); // Sprawdza czy tablica jest pusta
 
 

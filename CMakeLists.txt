@@ -19,4 +19,5 @@ add_executable(ISA_Struktury_Danych main.cpp
         TailList.cpp
         TailList.h
         ui.cpp
+        ui.h
 )

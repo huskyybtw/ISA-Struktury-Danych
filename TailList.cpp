@@ -117,12 +117,7 @@ void TailList<T>::addEnd(const T& t) {
         size++;
         return;
     }
-
-    SNode<T>* temp = head;
-    while(temp->next != NULL){ // PRZESTAWIA WSKAZNIK DOPOKI NIE ZNAJDZIE OSTATNIEGO ELEMENTU
-        temp = temp->next;
-    }
-
+    SNode<T>* temp = tail;
     SNode<T>* node = new SNode<T>;
     node->elem = t;
     node->next = NULL;
@@ -146,11 +141,10 @@ void TailList<T>::removeEnd(){
         size--;
         return;
     }
-
-        SNode<T>* temp = head;
-         while(temp->next != tail){ // PRZESTAWIA WSKAZNIK DOPOKI NIE ZNAJDZIE PRZEDOSTATNIEGO ELEMENTU
+    SNode<T>* temp = head;
+        while(temp->next != tail){ // PRZESTAWIA WSKAZNIK DOPOKI NIE ZNAJDZIE PRZEDOSTATNIEGO ELEMENTU
          temp = temp->next;
-    }
+        }
 
     delete tail;  // USUWA OSTATNI ELEMENT
     tail = temp;  // PRZEDOSTATNI ELEMENT STAJE SIE OSTATNIM
