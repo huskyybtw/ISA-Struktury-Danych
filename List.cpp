@@ -7,17 +7,17 @@
 
 
 
-template class TailList<int>; // BLAD Z TEMPLATE'AMI KTOREGO NIE UMIEM NAPRAWIC LISTA DZIALA TYLKO NA INT'ACH
+template class [[maybe_unused]] List<int>; // BLAD Z TEMPLATE'AMI KTOREGO NIE UMIEM NAPRAWIC LISTA DZIALA TYLKO NA INT'ACH
 
 // USTAWIA WSKAZNIK I WIELKOSC STRUKTURY
 template <typename T>
-TailList<T>::TailList() : head(NULL) {
+List<T>::List() : head(NULL) {
     size = 0;
 }
 
 // USUWA POKOLEI WSZYSTKIE ELEMENTY Z PRZODU
 template <typename T>
-TailList<T>::~TailList(){
+List<T>::~List(){
     while(!empty()){
         removeFront();
     }
@@ -25,7 +25,7 @@ TailList<T>::~TailList(){
 // SPRAWDZA CZY HEAD NA COS WSKAZUJE
 // ZWRACA FALSZ JEZELI LISTA MA JAKIES ELEMENTY
 template <typename T>
-bool TailList<T>::empty() const{
+bool List<T>::empty() const{
     if (head == NULL){
         return true;
     }
@@ -34,13 +34,13 @@ bool TailList<T>::empty() const{
 
 // ZWRACA WARTOSC W PIERWSZEGO WEZLA
 template <typename T>
-const T& TailList<T>::first() const {
+const T& List<T>::first() const {
     return head->elem;
 }
 
 // ZWRACA WARTOSC OSTATNIEGO WEZLA
 template <typename T>
-const T& TailList<T>::last() const{
+const T& List<T>::last() const{
     if(head == NULL){
         throw std::logic_error("TailList is empty");
     }
@@ -55,7 +55,7 @@ const T& TailList<T>::last() const{
 
 // ZWRACA LOSOWY ELEMENT Z PRZEDZIALU OD 0 DO SIZE
 template <typename T>
-const T& TailList<T>::random() const {
+const T& List<T>::random() const {
     if(head == NULL){
         throw std::logic_error("TailList is empty");
     }
@@ -72,7 +72,7 @@ const T& TailList<T>::random() const {
 
 // DODAJE ELEMENT NA POCZATKU LISTY
 template <typename T>
-void TailList<T>::addFront(const T& t) {
+void List<T>::addFront(const T& t) {
     SNode<T>* node = new SNode<T>;
     node->elem = t;
     node->next = head;
@@ -83,7 +83,7 @@ void TailList<T>::addFront(const T& t) {
 
 // USUWA ELEMENT Z POCZATKU LISTY
 template<typename T>
-void TailList<T>::removeFront() {
+void List<T>::removeFront() {
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         return;
     }
@@ -101,7 +101,7 @@ void TailList<T>::removeFront() {
 
 // DODAJE ELEMENT NA KONCU LISTY
 template<typename T>
-void TailList<T>::addEnd(const T& t) {
+void List<T>::addEnd(const T& t) {
     if(head == NULL){ // JESLI LISTA NIE MA ELEMENTOW
         SNode<T>* node = new SNode<T>;
         node->elem = t;
@@ -126,7 +126,7 @@ void TailList<T>::addEnd(const T& t) {
 
 // USUWA OSTATNI ELEMENT
 template<typename T>
-void TailList<T>::removeEnd(){
+void List<T>::removeEnd(){
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         return;
     }
@@ -150,7 +150,7 @@ void TailList<T>::removeEnd(){
 
 // DODAJE ELEMENT PO LOSOWYM ELEMENCIE
 template<typename T>
-void TailList<T>::addRandom(const T &t) {
+void List<T>::addRandom(const T &t) {
 
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         this->addFront(t);
@@ -180,7 +180,7 @@ void TailList<T>::addRandom(const T &t) {
 
 // USUWA WEZEL PO LOSOWYM ELEMENCIE
 template<typename T>
-void TailList<T>::removeRandom() {
+void List<T>::removeRandom() {
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         return;
     }
@@ -214,7 +214,7 @@ void TailList<T>::removeRandom() {
 
 // WYPISUJE WYSZYSTKIE WARTOSCI ELEMENT
 template<typename T>
-void TailList<T>::printList() {
+void List<T>::printList() {
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         return;
     }
@@ -229,7 +229,7 @@ void TailList<T>::printList() {
 
 // WYPISUJE LOSOWY ELEMENT
 template<typename T>
-void TailList<T>::printRandom() {
+void List<T>::printRandom() {
     if(head == NULL){
         return;
     }
@@ -247,7 +247,7 @@ void TailList<T>::printRandom() {
 
 // ZWRACA WIELKOSCI LISTY
 template <typename T>
-int TailList<T>::getSize() {
+int List<T>::getSize() {
     return size;
 }
 

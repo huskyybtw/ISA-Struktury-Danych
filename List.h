@@ -5,11 +5,11 @@
 
 // BLAD Z TEMPLATAMI DZIALA TYLKO NA INTACH
 template <typename T>
-class TailList {
+class List {
 public:
 
-    TailList(); // KONSTRUKTOR USTAWIALISTE
-    ~TailList(); // DESTRUKTOR USUWA WSZYSTKIE ELEMENTY Z LISTY
+    List(); // KONSTRUKTOR USTAWIALISTE
+    ~List(); // DESTRUKTOR USUWA WSZYSTKIE ELEMENTY Z LISTY
 
     bool empty() const; // ZWRACA CZY LISTA ZAWIERA ELEMENTY
     const T& first() const; // ZWRACA PIERWSZY ELEMENT

@@ -4,7 +4,7 @@
 
 // KLASA NA WEZLY
 template <typename T>
-class SNode {
+struct SNode {
 public:
     T elem;
     SNode<T>* next;
