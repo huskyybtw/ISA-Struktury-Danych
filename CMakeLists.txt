@@ -15,6 +15,8 @@ add_executable(ISA_Struktury_Danych main.cpp
         DoublyList.cpp
         DoublyList.h
         DNode.h
+        ArrayList.cpp
+        ArrayList.h
         TailList.cpp
         TailList.h
 )
