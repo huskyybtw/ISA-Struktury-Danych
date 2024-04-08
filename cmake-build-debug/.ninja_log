@@ -1,8 +1,0 @@
-# ninja log v5
-3	704	7329241121589077	CMakeFiles/ISA_Struktury_Danych.dir/main.cpp.obj	c56df4b4d7fbdb7d
-38	737	7329238535526257	CMakeFiles/ISA_Struktury_Danych.dir/DoublyList.cpp.obj	85c2dc8ceadc3e3a
-74	521	7329209731182627	CMakeFiles/ISA_Struktury_Danych.dir/SNode.cpp.obj	721b4b1e7237f264
-3	695	7329235414431503	CMakeFiles/ISA_Struktury_Danych.dir/tests.cpp.obj	d060ddaff37880a3
-705	923	7329241123768795	ISA_Struktury_Danych.exe	9e34e670c9b829bf
-4	730	7329240851494611	CMakeFiles/ISA_Struktury_Danych.dir/List.cpp.obj	9fb5cdbd76d0baeb
-2	423	7342872779070748	build.ninja	bf861c041b223dd1
