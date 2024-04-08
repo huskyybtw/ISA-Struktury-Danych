@@ -154,3 +154,7 @@ void ArrayList<T>::printRandom() {      // Drukuje losowy element z tablicy
     std::cout << "Losowa liczba wynosi:" << temp << std::endl;
 
 }
+template <class T>
+int ArrayList<T>::getSize() {
+    return size;
+}
