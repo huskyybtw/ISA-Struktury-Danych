@@ -7,6 +7,7 @@
 
 #include "List.h"
 #include "DoublyList.h"
+#include "TailList.h"
 
 
 
@@ -99,7 +100,7 @@ void randomTest(int operation,int times,DoublyList<int>& list){
 }
 
 // TESTUJE PODSTAWOWE OPERACJE NA LISCIE Z LOSOWO GENEROWANYMI WARTOSCIAMI
-void randomTest(int operation,int times,List<int>& list) {
+void randomTest(int operation, int times, TailList<int>& list) {
     auto start = std::chrono::high_resolution_clock::now();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
@@ -249,7 +250,7 @@ void readFile (int operation,const std::string& filename,DoublyList<int>& list){
     return;
 }
 
-void readFile (int operation,const std::string& filename,List<int>& list){
+void readFile (int operation, const std::string& filename, TailList<int>& list){
     std::ifstream file(filename);
 
     auto start = std::chrono::high_resolution_clock::now();

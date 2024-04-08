@@ -31,6 +31,7 @@ public:
     int getSize(); // ZWRACA WIELKOSC LISTY
 
 private:
+    SNode<T>* tail;
     SNode<T>* head; // WSKAZNIK NA PIERWSZY ELEMENT LISTY
     int size; // PRZECHOWUJE WIELKOSC LISTY
 };
