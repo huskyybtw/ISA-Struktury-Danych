@@ -226,6 +226,11 @@ void DoublyList<T>::removeRandom() {
         return;
     }
 
+    if(head->next == NULL){ // JESLI SA TYLKO DWA ELEMENTY SIZE=2
+        this->removeFront();
+        return;
+    }
+
     if(head->next->next == NULL){ // JESLI SA TYLKO DWA ELEMENTY SIZE=2
         this->removeEnd();
         return;

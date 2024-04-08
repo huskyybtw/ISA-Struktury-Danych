@@ -21,7 +21,9 @@ ArrayList<T>::~ArrayList(){
 
 template <class T>
 void ArrayList<T>::addRandom(const T &t) { // Dodaje element w losowym miejscu w tablicy
-
+    if(size == 0){
+        this->addFront(t);
+    }
     try {
         if (needtoresize()) // Sprawdzenie czy trzeba powiekszyc tablice, jesli tak to powieksza 2x
             resize();

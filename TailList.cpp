@@ -118,10 +118,7 @@ void TailList<T>::addEnd(const T& t) {
         return;
     }
 
-    SNode<T>* temp = head;
-    while(temp->next != NULL){ // PRZESTAWIA WSKAZNIK DOPOKI NIE ZNAJDZIE OSTATNIEGO ELEMENTU
-        temp = temp->next;
-    }
+    SNode<T>* temp = tail;
 
     SNode<T>* node = new SNode<T>;
     node->elem = t;

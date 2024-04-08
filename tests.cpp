@@ -4,7 +4,7 @@
 #include <chrono>
 #include <fstream>
 #include <vector>
-
+#include "ArrayList.h"
 #include "List.h"
 #include "DoublyList.h"
 #include "TailList.h"
@@ -14,7 +14,7 @@
 
 
 // TESTUJE PODSTAWOWE OPERACJE NA LISCIE DWUKIERUNKOWEJ Z LOSOWO GENEROWANYMI WARTOSCIAMI
-void randomTest(int operation,int times,DoublyList<int>& list){
+void randomTest(int operation,int times,ArrayList<int>& list){
     auto start = std::chrono::high_resolution_clock::now();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
@@ -101,7 +101,7 @@ void randomTest(int operation,int times,DoublyList<int>& list){
     }
 }
 // TESTUJE PODSTAWOWE OPERACJE NA LISCIE Z LOSOWO GENEROWANYMI WARTOSCIAMI
-void randomTest(int operation, int times,ArrayList<int>& list) {
+void randomTest(int operation, int times,DoublyList<int>& list) {
     auto start = std::chrono::high_resolution_clock::now();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
