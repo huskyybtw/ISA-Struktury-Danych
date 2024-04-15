@@ -154,16 +154,18 @@ void TailList<T>::removeEnd(){
 
 // DODAJE ELEMENT PO LOSOWYM ELEMENCIE
 template<typename T>
-void TailList<T>::addRandom(const T &t) {
+void TailList<T>::addRandom(const T &t,int random) {
 
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         this->addFront(t);
         return;
     }
 
+    if(random >= size){
+        return;
+    }
+
     SNode<T>* temp = head;
-    std::srand(std::time(nullptr));
-    int random = std::rand() % size; // GENERUJE LICZBE OD O DO SIZE-1
 
     if(random == size-1){ // JESLI DODAJE NA OSTATNIM ELEMENCIE
         this->addEnd(t);
@@ -187,14 +189,16 @@ void TailList<T>::addRandom(const T &t) {
 
 // USUWA WEZEL PO LOSOWYM ELEMENCIE
 template<typename T>
-void TailList<T>::removeRandom() {
+void TailList<T>::removeRandom(int random) {
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         return;
     }
 
+    if(random >= size){
+        return;
+    }
+
     SNode<T>* temp = head;
-    std::srand(std::time(nullptr));
-    int random = std::rand() % size; // GENERUJE LICZBE OD O DO SIZE-1
 
     if(random == 0){ // JESLI WYLOSOWANO PIERWSZY ELEMENT
         this->removeFront();

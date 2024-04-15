@@ -17,8 +17,8 @@ public:
     void addEnd(const T &t); // Dodaje element na koncu tablicy
     void removeEnd(); // Usuwa element na koncu tablicy
 
-    void addRandom(const T &t); // Dodaje element w losowym miejscu tablicy
-    void removeRandom(); // Usuwa element w losowym miejscu tablicy
+    void addRandom(const T &t,int random); // Dodaje element w losowym miejscu tablicy
+    void removeRandom(int random); // Usuwa element w losowym miejscu tablicy
 
     void printList(); // Wypisuje wszystkie elementy z tablicy
     void printRandom(); // Wypisuje losowy element z tablicy

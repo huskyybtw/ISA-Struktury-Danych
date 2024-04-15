@@ -4,6 +4,7 @@
 #include <chrono>
 #include <fstream>
 #include <vector>
+#include <random>
 #include "ArrayList.h"
 #include "List.h"
 #include "DoublyList.h"
@@ -25,8 +26,7 @@ void randomTest(int operation,int times,ArrayList<int>& list){
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
+                int random = std::rand() % list.getSize();
                 list.addFront(random);
             }
 
@@ -39,8 +39,7 @@ void randomTest(int operation,int times,ArrayList<int>& list){
             start = std::chrono::high_resolution_clock::now();
             std::srand(std::time(nullptr));
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
+                int random = std::rand() % list.getSize();
                 list.addEnd(random);
             }
 
@@ -54,9 +53,8 @@ void randomTest(int operation,int times,ArrayList<int>& list){
             std::srand(std::time(nullptr));
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
-                list.addRandom(random);
+                int random = std::rand() % list.getSize();
+                list.addRandom(random,random);
             }
 
             end = std::chrono::high_resolution_clock::now();
@@ -68,7 +66,8 @@ void randomTest(int operation,int times,ArrayList<int>& list){
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                list.removeRandom();
+                int random = std::rand() % list.getSize();
+                list.removeRandom(random);
             }
 
             end = std::chrono::high_resolution_clock::now();
@@ -105,14 +104,14 @@ void randomTest(int operation, int times,DoublyList<int>& list) {
     auto start = std::chrono::high_resolution_clock::now();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
-    switch (operation) {
+
+    switch(operation) {
         case 0: // addFront
             std::srand(std::time(nullptr));
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
+                int random = std::rand() % list.getSize();
                 list.addFront(random);
             }
 
@@ -125,8 +124,7 @@ void randomTest(int operation, int times,DoublyList<int>& list) {
             start = std::chrono::high_resolution_clock::now();
             std::srand(std::time(nullptr));
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
+                int random = std::rand() % list.getSize();
                 list.addEnd(random);
             }
 
@@ -140,9 +138,8 @@ void randomTest(int operation, int times,DoublyList<int>& list) {
             std::srand(std::time(nullptr));
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
-                list.addRandom(random);
+                int random = std::rand() % list.getSize();
+                list.addRandom(random,random);
             }
 
             end = std::chrono::high_resolution_clock::now();
@@ -154,7 +151,8 @@ void randomTest(int operation, int times,DoublyList<int>& list) {
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                list.removeRandom();
+                int random = std::rand() % list.getSize();
+                list.removeRandom(random);
             }
 
             end = std::chrono::high_resolution_clock::now();
@@ -191,14 +189,14 @@ void randomTest(int operation, int times,List<int>& list) {
     auto start = std::chrono::high_resolution_clock::now();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
-    switch (operation) {
+
+    switch(operation) {
         case 0: // addFront
             std::srand(std::time(nullptr));
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
+                int random = std::rand() % list.getSize();
                 list.addFront(random);
             }
 
@@ -211,8 +209,7 @@ void randomTest(int operation, int times,List<int>& list) {
             start = std::chrono::high_resolution_clock::now();
             std::srand(std::time(nullptr));
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
+                int random = std::rand() % list.getSize();
                 list.addEnd(random);
             }
 
@@ -226,9 +223,8 @@ void randomTest(int operation, int times,List<int>& list) {
             std::srand(std::time(nullptr));
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
-                list.addRandom(random);
+                int random = std::rand() % list.getSize();
+                list.addRandom(random,random);
             }
 
             end = std::chrono::high_resolution_clock::now();
@@ -240,7 +236,8 @@ void randomTest(int operation, int times,List<int>& list) {
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                list.removeRandom();
+                int random = std::rand() % list.getSize();
+                list.removeRandom(random);
             }
 
             end = std::chrono::high_resolution_clock::now();
@@ -272,20 +269,19 @@ void randomTest(int operation, int times,List<int>& list) {
             break;
     }
 }
-
 // TESTUJE PODSTAWOWE OPERACJE NA LISCIE Z LOSOWO GENEROWANYMI WARTOSCIAMI
 void randomTest(int operation, int times,TailList<int>& list) {
     auto start = std::chrono::high_resolution_clock::now();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
-    switch (operation) {
+
+    switch(operation) {
         case 0: // addFront
             std::srand(std::time(nullptr));
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
+                int random = std::rand() % list.getSize();
                 list.addFront(random);
             }
 
@@ -298,8 +294,7 @@ void randomTest(int operation, int times,TailList<int>& list) {
             start = std::chrono::high_resolution_clock::now();
             std::srand(std::time(nullptr));
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
+                int random = std::rand() % list.getSize();
                 list.addEnd(random);
             }
 
@@ -311,11 +306,9 @@ void randomTest(int operation, int times,TailList<int>& list) {
         case 2: // addRandom
             start = std::chrono::high_resolution_clock::now();
             std::srand(std::time(nullptr));
-
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % 100;
-                random = random + i; // BUG GENEROWALO CALY CZAS TE SAME LICZBY NIE WIEM CZEMU
-                list.addRandom(random);
+                int random = std::rand() % list.getSize();
+                list.addRandom(random,random);
             }
 
             end = std::chrono::high_resolution_clock::now();
@@ -327,7 +320,8 @@ void randomTest(int operation, int times,TailList<int>& list) {
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                list.removeRandom();
+                int random = std::rand() % list.getSize();
+                list.removeRandom(random);
             }
 
             end = std::chrono::high_resolution_clock::now();
@@ -409,8 +403,11 @@ void addFromFile (int operation, const std::string& filename,ArrayList<int>& lis
         case 2:
             start = std::chrono::high_resolution_clock::now();
 
+
             for (int num : numbers) {
-                list.addRandom(num);
+                std::srand(std::time(nullptr));
+                int random = std::rand() % list.getSize();
+                list.addRandom(num,random);
             }
 
             end = std::chrono::high_resolution_clock::now();
@@ -473,7 +470,9 @@ void addFromFile (int operation, const std::string& filename,List<int>& list){
             start = std::chrono::high_resolution_clock::now();
 
             for (int num : numbers) {
-                list.addRandom(num);
+                std::srand(std::time(nullptr));
+                int random = std::rand() % list.getSize();
+                list.addRandom(num,random);
             }
 
             end = std::chrono::high_resolution_clock::now();
@@ -537,7 +536,9 @@ void addFromFile (int operation,const std::string& filename,DoublyList<int>& lis
             start = std::chrono::high_resolution_clock::now();
 
             for (int num : numbers) {
-                list.addRandom(num);
+                std::srand(std::time(nullptr));
+                int random = std::rand() % list.getSize();
+                list.addRandom(num,random);
             }
 
             end = std::chrono::high_resolution_clock::now();
@@ -601,7 +602,9 @@ void addFromFile (int operation, const std::string& filename,TailList<int>& list
             start = std::chrono::high_resolution_clock::now();
 
             for (int num : numbers) {
-                list.addRandom(num);
+                std::srand(std::time(nullptr));
+                int random = std::rand() % list.getSize();
+                list.addRandom(num,random);
             }
 
             end = std::chrono::high_resolution_clock::now();
@@ -612,5 +615,237 @@ void addFromFile (int operation, const std::string& filename,TailList<int>& list
 
     file.close();
     return;
+}
+
+std::vector<int> Generator(int seed,int amount){
+        std::vector<int> numbers;
+        std::mt19937 rng(seed);
+
+        for (int i = 0; i < amount; ++i) {
+            numbers.push_back(rng());
+        }
+
+        return numbers;
+}
+
+double generatorTest(int operation,int* seeds,int seedsSize,int amount,ArrayList<int>& list){
+    auto start = std::chrono::high_resolution_clock::now();
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+    double data[seedsSize];
+
+    for (int i=0  ; i<seedsSize ; i++ ){
+        if(list.getSize() != 0){
+            throw std::logic_error("Lista nie zostala poprawnie wyczyszczona");
+        }
+        std::vector<int> temp = Generator(seeds[i], amount);
+
+        for (int num: temp) {
+            list.addFront(num);
+        }
+
+        start = std::chrono::high_resolution_clock::now();
+        switch (operation){
+            case 0:
+                list.addFront(seeds[i]);
+                break;
+            case 1:
+                list.addEnd(seeds[i]);
+                break;
+            case 2:
+                list.addRandom(seeds[i],seeds[i]);
+                break;
+            case 3:
+                list.removeRandom(seeds[i]);
+                break;
+            case 4:
+                list.removeFront();
+                break;
+            case 5:
+                list.removeEnd();
+                break;
+        }
+        end = std::chrono::high_resolution_clock::now();
+        duration = end - start;
+        std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
+        data[i] = duration.count();
+
+        while(list.getSize() != 0){
+            list.removeFront();
+        }
+    }
+
+    double answer = 0;
+    for (int i= 0 ; i<seedsSize ;i++){
+        answer += data[i];
+    }
+    answer = answer / seedsSize;
+
+    return answer;
+}
+
+double generatorTest(int operation,int* seeds,int seedsSize,int amount,TailList<int>& list){
+    auto start = std::chrono::high_resolution_clock::now();
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+    double data[seedsSize];
+
+    for (int i=0  ; i<seedsSize ; i++ ){
+        if(list.getSize() != 0){
+            throw std::logic_error("Lista nie zostala poprawnie wyczyszczona");
+        }
+        std::vector<int> temp = Generator(seeds[i], amount);
+
+        for (int num: temp) {
+            list.addFront(num);
+        }
+
+        start = std::chrono::high_resolution_clock::now();
+            switch (operation){
+                case 0:
+                    list.addFront(seeds[i]);
+                    break;
+                case 1:
+                    list.addEnd(seeds[i]);
+                    break;
+                case 2:
+                    list.addRandom(seeds[i],seeds[i]);
+                    break;
+                case 3:
+                    list.removeRandom(seeds[i]);
+                    break;
+                case 4:
+                    list.removeFront();
+                    break;
+                case 5:
+                    list.removeEnd();
+                    break;
+            }
+        end = std::chrono::high_resolution_clock::now();
+        duration = end - start;
+        std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
+        data[i] = duration.count();
+
+        while(list.getSize() != 0){
+            list.removeFront();
+        }
+    }
+
+    double answer = 0;
+    for (int i= 0 ; i<seedsSize ;i++){
+        answer += data[i];
+    }
+    answer = answer / seedsSize;
+    return answer;
+}
+
+double generatorTest(int operation,int* seeds,int seedsSize,int amount,DoublyList<int>& list){
+    auto start = std::chrono::high_resolution_clock::now();
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+    double data[seedsSize];
+
+    for (int i=0  ; i<seedsSize ; i++ ){
+        if(list.getSize() != 0){
+            throw std::logic_error("Lista nie zostala poprawnie wyczyszczona");
+        }
+        std::vector<int> temp = Generator(seeds[i], amount);
+
+        for (int num: temp) {
+            list.addFront(num);
+        }
+
+        start = std::chrono::high_resolution_clock::now();
+            switch (operation){
+                case 0:
+                    list.addFront(seeds[i]);
+                    break;
+                case 1:
+                    list.addEnd(seeds[i]);
+                    break;
+                case 2:
+                    list.addRandom(seeds[i],seeds[i]);
+                    break;
+                case 3:
+                    list.removeRandom(seeds[i]);
+                    break;
+                case 4:
+                    list.removeFront();
+                    break;
+                case 5:
+                    list.removeEnd();
+                    break;
+            }
+        end = std::chrono::high_resolution_clock::now();
+        duration = end - start;
+        std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
+        data[i] = duration.count();
+
+        while(list.getSize() != 0){
+            list.removeFront();
+        }
+    }
+
+    double answer = 0;
+    for (int i= 0 ; i<seedsSize ;i++){
+        answer += data[i];
+    }
+    answer = answer / seedsSize;
+    return answer;
+}
+
+double generatorTest(int operation,int* seeds,int seedsSize,int amount,List<int>& list){
+    auto start = std::chrono::high_resolution_clock::now();
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+    double data[seedsSize];
+
+    for (int i=0  ; i<seedsSize ; i++ ){
+        if(list.getSize() != 0){
+            throw std::logic_error("Lista nie zostala poprawnie wyczyszczona");
+        }
+        std::vector<int> temp = Generator(seeds[i], amount);
+
+        for (int num: temp) {
+            list.addFront(num);
+        }
+
+        start = std::chrono::high_resolution_clock::now();
+            switch (operation){
+                case 0:
+                    list.addFront(seeds[i]);
+                    break;
+                case 1:
+                    list.addEnd(seeds[i]);
+                    break;
+                case 2:
+                    list.addRandom(seeds[i],seeds[i]);
+                    break;
+                case 3:
+                    list.removeRandom(seeds[i]);
+                    break;
+                case 4:
+                    list.removeFront();
+                    break;
+                case 5:
+                    list.removeEnd();
+                    break;
+            }
+        end = std::chrono::high_resolution_clock::now();
+        duration = end - start;
+        std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
+        data[i] = duration.count();
+
+        while(list.getSize() != 0){
+            list.removeFront();
+        }
+    }
+
+    double answer = 0;
+    for (int i= 0 ; i<seedsSize ;i++){
+        answer += data[i];
+    }
+    answer = answer / seedsSize;
+    return answer;
 }
 

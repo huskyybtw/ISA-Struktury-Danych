@@ -151,16 +151,18 @@ void DoublyList<T>::addEnd(const T& t) {
 
 // DODAJE ELEMENT PO LOSOWYM ELEMENCIE
 template<typename T>
-void DoublyList<T>::addRandom(const T &t) {
+void DoublyList<T>::addRandom(const T &t,int random) {
 
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         this->addFront(t);
         return;
     }
 
+    if(random > size){
+        return;
+    }
+
     DNode<T>* temp = head;
-    std::srand(std::time(nullptr));
-    int random = std::rand() % (size+1); // GENERUJE LICZBE OD O DO SIZE
 
     if(random == 0){
         this->addFront(t);
@@ -222,12 +224,12 @@ void DoublyList<T>::removeEnd(){
 
 // USUWA LOSOWY WEZEL
 template<typename T>
-void DoublyList<T>::removeRandom() {
+void DoublyList<T>::removeRandom(int random) {
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         return;
     }
 
-    if(head->next == NULL){ // JESLI SA TYLKO DWA ELEMENTY SIZE=1
+    if(head->next == NULL){ // JESLI JEST TYLKO JEDEN ELEMENT SIZE=1
         this->removeFront();
         return;
     }
@@ -237,10 +239,11 @@ void DoublyList<T>::removeRandom() {
         return;
     }
 
-    DNode<T>* temp = head;
-    std::srand(std::time(nullptr));
-    int random = std::rand() % (size+1); // GENERUJE LICZBE OD O DO SIZE
+    if(random > size){
+        return;
+    }
 
+    DNode<T>* temp = head;
     if(random == 0){
         this->removeFront();
         return;

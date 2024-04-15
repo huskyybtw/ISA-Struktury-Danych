@@ -7,7 +7,7 @@
 
 
 
-template class [[maybe_unused]] List<int>; // BLAD Z TEMPLATE'AMI KTOREGO NIE UMIEM NAPRAWIC LISTA DZIALA TYLKO NA INT'ACH
+template class List<int>; // BLAD Z TEMPLATE'AMI KTOREGO NIE UMIEM NAPRAWIC LISTA DZIALA TYLKO NA INT'ACH
 
 // USTAWIA WSKAZNIK I WIELKOSC STRUKTURY
 template <typename T>
@@ -150,16 +150,18 @@ void List<T>::removeEnd(){
 
 // DODAJE ELEMENT PO LOSOWYM ELEMENCIE
 template<typename T>
-void List<T>::addRandom(const T &t) {
+void List<T>::addRandom(const T &t,int random) {
 
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         this->addFront(t);
         return;
     }
 
+    if(random >= size){
+        return;
+    }
+
     SNode<T>* temp = head;
-    std::srand(std::time(nullptr));
-    int random = std::rand() % size; // GENERUJE LICZBE OD O DO SIZE-1
 
     if(random == size-1){ // JESLI DODAJE NA OSTATNIM ELEMENCIE
         this->addEnd(t);
@@ -180,15 +182,16 @@ void List<T>::addRandom(const T &t) {
 
 // USUWA WEZEL PO LOSOWYM ELEMENCIE
 template<typename T>
-void List<T>::removeRandom() {
+void List<T>::removeRandom(int random) {
     if(head == NULL){ // JESLI LISTA JEST PUSTA
         return;
     }
 
-    SNode<T>* temp = head;
-    std::srand(std::time(nullptr));
-    int random = std::rand() % size; // GENERUJE LICZBE OD O DO SIZE-1
+    if(random >= size){
+        return;
+    }
 
+    SNode<T>* temp = head;
     if(random == 0){ // JESLI WYLOSOWANO PIERWSZY ELEMENT
         this->removeFront();
         return;
