@@ -641,10 +641,22 @@ double generatorTest(int operation,int* seeds,int seedsSize,int amount,ArrayList
         std::vector<int> temp = Generator(seeds[i], amount);
 
         for (int num: temp) {
-            list.addFront(num);
+            list.addEnd(num);
         }
 
-        start = std::chrono::high_resolution_clock::now();
+        int randomdist[5] = {(list.getSize()/4 - list.getSize()/8),
+                      (list.getSize()/2 - list.getSize()/4),
+                      list.getSize()/2,
+                      (list.getSize()/2 + list.getSize()/4),
+                      (list.getSize()/4 + list.getSize()/8)
+        };
+
+        double randomtimes = 0;
+
+        if(operation != 2 || operation != 3){
+            start = std::chrono::high_resolution_clock::now();
+        }
+
         switch (operation){
             case 0:
                 list.addFront(seeds[i]);
@@ -653,10 +665,26 @@ double generatorTest(int operation,int* seeds,int seedsSize,int amount,ArrayList
                 list.addEnd(seeds[i]);
                 break;
             case 2:
-                list.addRandom(seeds[i],seeds[i]);
+                for (int j=0; j<5 ; j++) {
+                    start = std::chrono::high_resolution_clock::now();
+                    list.addRandom(seeds[i], randomdist[j]);
+                    end = std::chrono::high_resolution_clock::now();
+                    duration = end - start;
+                    randomtimes = randomtimes + duration.count();
+                    list.removeRandom(randomdist[j]);
+                }
+                randomtimes = randomtimes / 5 ;
                 break;
             case 3:
-                list.removeRandom(seeds[i]);
+                for (int j=0; j<5 ; j++) {
+                    start = std::chrono::high_resolution_clock::now();
+                    list.removeRandom(randomdist[j]);
+                    end = std::chrono::high_resolution_clock::now();
+                    duration = end - start;
+                    randomtimes = randomtimes + duration.count();
+                    list.addRandom(temp[randomdist[j]],randomdist[j]);
+                }
+                randomtimes = randomtimes / 5 ;
                 break;
             case 4:
                 list.removeFront();
@@ -665,13 +693,19 @@ double generatorTest(int operation,int* seeds,int seedsSize,int amount,ArrayList
                 list.removeEnd();
                 break;
         }
-        end = std::chrono::high_resolution_clock::now();
-        duration = end - start;
-        std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
-        data[i] = duration.count();
+
+        if(operation == 2 || operation == 3){
+            data[i] = randomtimes;
+        }
+        else{
+            end = std::chrono::high_resolution_clock::now();
+            duration = end - start;
+            std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
+            data[i] = duration.count();
+        }
 
         while(list.getSize() != 0){
-            list.removeFront();
+            list.removeEnd();
         }
     }
 
@@ -697,34 +731,68 @@ double generatorTest(int operation,int* seeds,int seedsSize,int amount,TailList<
         std::vector<int> temp = Generator(seeds[i], amount);
 
         for (int num: temp) {
-            list.addFront(num);
+            list.addEnd(num);
         }
 
-        start = std::chrono::high_resolution_clock::now();
-            switch (operation){
-                case 0:
-                    list.addFront(seeds[i]);
-                    break;
-                case 1:
-                    list.addEnd(seeds[i]);
-                    break;
-                case 2:
-                    list.addRandom(seeds[i],seeds[i]);
-                    break;
-                case 3:
-                    list.removeRandom(seeds[i]);
-                    break;
-                case 4:
-                    list.removeFront();
-                    break;
-                case 5:
-                    list.removeEnd();
-                    break;
-            }
-        end = std::chrono::high_resolution_clock::now();
-        duration = end - start;
-        std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
-        data[i] = duration.count();
+        int randomdist[5] = {(list.getSize()/4 - list.getSize()/8),
+                             (list.getSize()/2 - list.getSize()/4),
+                             list.getSize()/2,
+                             (list.getSize()/2 + list.getSize()/4),
+                             (list.getSize()/4 + list.getSize()/8)
+        };
+
+        double randomtimes = 0;
+
+        if(operation != 2 || operation != 3){
+            start = std::chrono::high_resolution_clock::now();
+        }
+
+        switch (operation){
+            case 0:
+                list.addFront(seeds[i]);
+                break;
+            case 1:
+                list.addEnd(seeds[i]);
+                break;
+            case 2:
+                for (int j=0; j<5 ; j++) {
+                    start = std::chrono::high_resolution_clock::now();
+                    list.addRandom(seeds[i], randomdist[j]);
+                    end = std::chrono::high_resolution_clock::now();
+                    duration = end - start;
+                    randomtimes = randomtimes + duration.count();
+                    list.removeRandom(randomdist[j]);
+                }
+                randomtimes = randomtimes / 5 ;
+                break;
+            case 3:
+                for (int j=0; j<5 ; j++) {
+                    start = std::chrono::high_resolution_clock::now();
+                    list.removeRandom(randomdist[j]);
+                    end = std::chrono::high_resolution_clock::now();
+                    duration = end - start;
+                    randomtimes = randomtimes + duration.count();
+                    list.addRandom(temp[randomdist[j]],randomdist[j]);
+                }
+                randomtimes = randomtimes / 5 ;
+                break;
+            case 4:
+                list.removeFront();
+                break;
+            case 5:
+                list.removeEnd();
+                break;
+        }
+
+        if(operation == 2 || operation == 3){
+            data[i] = randomtimes;
+        }
+        else{
+            end = std::chrono::high_resolution_clock::now();
+            duration = end - start;
+            std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
+            data[i] = duration.count();
+        }
 
         while(list.getSize() != 0){
             list.removeFront();
@@ -755,31 +823,65 @@ double generatorTest(int operation,int* seeds,int seedsSize,int amount,DoublyLis
             list.addFront(num);
         }
 
-        start = std::chrono::high_resolution_clock::now();
-            switch (operation){
-                case 0:
-                    list.addFront(seeds[i]);
-                    break;
-                case 1:
-                    list.addEnd(seeds[i]);
-                    break;
-                case 2:
-                    list.addRandom(seeds[i],seeds[i]);
-                    break;
-                case 3:
-                    list.removeRandom(seeds[i]);
-                    break;
-                case 4:
-                    list.removeFront();
-                    break;
-                case 5:
-                    list.removeEnd();
-                    break;
-            }
-        end = std::chrono::high_resolution_clock::now();
-        duration = end - start;
-        std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
-        data[i] = duration.count();
+        int randomdist[5] = {(list.getSize()/4 - list.getSize()/8),
+                             (list.getSize()/2 - list.getSize()/4),
+                             list.getSize()/2,
+                             (list.getSize()/2 + list.getSize()/4),
+                             (list.getSize()/4 + list.getSize()/8)
+        };
+
+        double randomtimes = 0;
+
+        if(operation != 2 || operation != 3){
+            start = std::chrono::high_resolution_clock::now();
+        }
+
+        switch (operation){
+            case 0:
+                list.addFront(seeds[i]);
+                break;
+            case 1:
+                list.addEnd(seeds[i]);
+                break;
+            case 2:
+                for (int j=0; j<5 ; j++) {
+                    start = std::chrono::high_resolution_clock::now();
+                    list.addRandom(seeds[i], randomdist[j]);
+                    end = std::chrono::high_resolution_clock::now();
+                    duration = end - start;
+                    randomtimes = randomtimes + duration.count();
+                    list.removeRandom(randomdist[j]);
+                }
+                randomtimes = randomtimes / 5 ;
+                break;
+            case 3:
+                for (int j=0; j<5 ; j++) {
+                    start = std::chrono::high_resolution_clock::now();
+                    list.removeRandom(randomdist[j]);
+                    end = std::chrono::high_resolution_clock::now();
+                    duration = end - start;
+                    randomtimes = randomtimes + duration.count();
+                    list.addRandom(temp[randomdist[j]],randomdist[j]);
+                }
+                randomtimes = randomtimes / 5 ;
+                break;
+            case 4:
+                list.removeFront();
+                break;
+            case 5:
+                list.removeEnd();
+                break;
+        }
+
+        if(operation == 2 || operation == 3){
+            data[i] = randomtimes;
+        }
+        else{
+            end = std::chrono::high_resolution_clock::now();
+            duration = end - start;
+            std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
+            data[i] = duration.count();
+        }
 
         while(list.getSize() != 0){
             list.removeFront();
@@ -810,31 +912,65 @@ double generatorTest(int operation,int* seeds,int seedsSize,int amount,List<int>
             list.addFront(num);
         }
 
-        start = std::chrono::high_resolution_clock::now();
-            switch (operation){
-                case 0:
-                    list.addFront(seeds[i]);
-                    break;
-                case 1:
-                    list.addEnd(seeds[i]);
-                    break;
-                case 2:
-                    list.addRandom(seeds[i],seeds[i]);
-                    break;
-                case 3:
-                    list.removeRandom(seeds[i]);
-                    break;
-                case 4:
-                    list.removeFront();
-                    break;
-                case 5:
-                    list.removeEnd();
-                    break;
-            }
-        end = std::chrono::high_resolution_clock::now();
-        duration = end - start;
-        std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
-        data[i] = duration.count();
+        int randomdist[5] = {(list.getSize()/4 - list.getSize()/8),
+                             (list.getSize()/2 - list.getSize()/4),
+                             list.getSize()/2,
+                             (list.getSize()/2 + list.getSize()/4),
+                             (list.getSize()/4 + list.getSize()/8)
+        };
+
+        double randomtimes = 0;
+
+        if(operation != 2 || operation != 3){
+            start = std::chrono::high_resolution_clock::now();
+        }
+
+        switch (operation){
+            case 0:
+                list.addFront(seeds[i]);
+                break;
+            case 1:
+                list.addEnd(seeds[i]);
+                break;
+            case 2:
+                for (int j=0; j<5 ; j++) {
+                    start = std::chrono::high_resolution_clock::now();
+                    list.addRandom(seeds[i], randomdist[j]);
+                    end = std::chrono::high_resolution_clock::now();
+                    duration = end - start;
+                    randomtimes = randomtimes + duration.count();
+                    list.removeRandom(randomdist[j]);
+                }
+                randomtimes = randomtimes / 5 ;
+                break;
+            case 3:
+                for (int j=0; j<5 ; j++) {
+                    start = std::chrono::high_resolution_clock::now();
+                    list.removeRandom(randomdist[j]);
+                    end = std::chrono::high_resolution_clock::now();
+                    duration = end - start;
+                    randomtimes = randomtimes + duration.count();
+                    list.addRandom(temp[randomdist[j]],randomdist[j]);
+                }
+                randomtimes = randomtimes / 5 ;
+                break;
+            case 4:
+                list.removeFront();
+                break;
+            case 5:
+                list.removeEnd();
+                break;
+        }
+
+        if(operation == 2 || operation == 3){
+            data[i] = randomtimes;
+        }
+        else{
+            end = std::chrono::high_resolution_clock::now();
+            duration = end - start;
+            std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
+            data[i] = duration.count();
+        }
 
         while(list.getSize() != 0){
             list.removeFront();
