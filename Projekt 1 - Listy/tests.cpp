@@ -26,7 +26,7 @@ void randomTest(int operation,int times,ArrayList<int>& list){
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);
                 list.addFront(random);
             }
 
@@ -39,7 +39,7 @@ void randomTest(int operation,int times,ArrayList<int>& list){
             start = std::chrono::high_resolution_clock::now();
             std::srand(std::time(nullptr));
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);
                 list.addEnd(random);
             }
 
@@ -53,7 +53,7 @@ void randomTest(int operation,int times,ArrayList<int>& list){
             std::srand(std::time(nullptr));
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % list.getSize()+1;
                 list.addRandom(random,random);
             }
 
@@ -66,7 +66,7 @@ void randomTest(int operation,int times,ArrayList<int>& list){
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);
                 list.removeRandom(random);
             }
 
@@ -111,7 +111,7 @@ void randomTest(int operation, int times,DoublyList<int>& list) {
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addFront(random);
             }
 
@@ -124,7 +124,7 @@ void randomTest(int operation, int times,DoublyList<int>& list) {
             start = std::chrono::high_resolution_clock::now();
             std::srand(std::time(nullptr));
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addEnd(random);
             }
 
@@ -138,7 +138,7 @@ void randomTest(int operation, int times,DoublyList<int>& list) {
             std::srand(std::time(nullptr));
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addRandom(random,random);
             }
 
@@ -151,7 +151,7 @@ void randomTest(int operation, int times,DoublyList<int>& list) {
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.removeRandom(random);
             }
 
@@ -196,7 +196,7 @@ void randomTest(int operation, int times,List<int>& list) {
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addFront(random);
             }
 
@@ -209,7 +209,7 @@ void randomTest(int operation, int times,List<int>& list) {
             start = std::chrono::high_resolution_clock::now();
             std::srand(std::time(nullptr));
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addEnd(random);
             }
 
@@ -223,7 +223,7 @@ void randomTest(int operation, int times,List<int>& list) {
             std::srand(std::time(nullptr));
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addRandom(random,random);
             }
 
@@ -236,7 +236,7 @@ void randomTest(int operation, int times,List<int>& list) {
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.removeRandom(random);
             }
 
@@ -281,7 +281,7 @@ void randomTest(int operation, int times,TailList<int>& list) {
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addFront(random);
             }
 
@@ -294,7 +294,7 @@ void randomTest(int operation, int times,TailList<int>& list) {
             start = std::chrono::high_resolution_clock::now();
             std::srand(std::time(nullptr));
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addEnd(random);
             }
 
@@ -307,7 +307,7 @@ void randomTest(int operation, int times,TailList<int>& list) {
             start = std::chrono::high_resolution_clock::now();
             std::srand(std::time(nullptr));
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addRandom(random,random);
             }
 
@@ -320,7 +320,7 @@ void randomTest(int operation, int times,TailList<int>& list) {
             start = std::chrono::high_resolution_clock::now();
 
             for (int i = 0; i < times; i++) {
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.removeRandom(random);
             }
 
@@ -406,7 +406,7 @@ void addFromFile (int operation, const std::string& filename,ArrayList<int>& lis
 
             for (int num : numbers) {
                 std::srand(std::time(nullptr));
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addRandom(num,random);
             }
 
@@ -471,7 +471,7 @@ void addFromFile (int operation, const std::string& filename,List<int>& list){
 
             for (int num : numbers) {
                 std::srand(std::time(nullptr));
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addRandom(num,random);
             }
 
@@ -537,7 +537,7 @@ void addFromFile (int operation,const std::string& filename,DoublyList<int>& lis
 
             for (int num : numbers) {
                 std::srand(std::time(nullptr));
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addRandom(num,random);
             }
 
@@ -603,7 +603,7 @@ void addFromFile (int operation, const std::string& filename,TailList<int>& list
 
             for (int num : numbers) {
                 std::srand(std::time(nullptr));
-                int random = std::rand() % list.getSize();
+                int random = std::rand() % (list.getSize()+1);;
                 list.addRandom(num,random);
             }
 

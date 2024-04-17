@@ -16,8 +16,8 @@ int main() {
     TailList<int>* tlist = new TailList<int>();
     DoublyList<int>* dlist = new DoublyList<int>();
 
-    std::cout << generatorTest(2,seeds,seedsSize,1000000,*list) << std::endl;
-    //App(*alist,*list,*tlist,*dlist);
+    //std::cout << generatorTest(2,seeds,seedsSize,1000000,*list) << std::endl;
+    App(*alist,*list,*tlist,*dlist);
 
     delete &alist;
     delete &list;

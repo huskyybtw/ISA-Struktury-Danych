@@ -20,8 +20,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96b580af-87db-41ee-8188-1ccf76a06b2c" name="Changes" comment="Projekt 1 fix&#10;- nowy test w cpp bazujacy na generatorze opartym na seedzie&#10;- funckje random teraz przyjmmuja index na ktorym maja dodac element&#10;- wiecej grzechow nie pamietam">
+    <list default="true" id="96b580af-87db-41ee-8188-1ccf76a06b2c" name="Changes" comment="random test fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt 1 - Listy/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt 1 - Listy/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projekt 1 - Listy/tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt 1 - Listy/tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +102,10 @@
       <workItem from="1713182322082" duration="4840000" />
       <workItem from="1713190096804" duration="1950000" />
       <workItem from="1713254149247" duration="2841000" />
-      <workItem from="1713257050799" duration="580000" />
+      <workItem from="1713257050799" duration="1465000" />
+      <workItem from="1713260278374" duration="101000" />
+      <workItem from="1713261826282" duration="1514000" />
+      <workItem from="1713338916411" duration="2483000" />
     </task>
     <task id="LOCAL-00001" summary="Project 1">
       <option name="closed" value="true" />
@@ -127,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712601027844</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="random test fix">
+      <option name="closed" value="true" />
+      <created>1713257919677</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713257919677</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,7 +163,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project 1" />
+    <MESSAGE value="random test fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="random test fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -160,6 +173,11 @@
           <url>file://$PROJECT_DIR$/Projekt 1 - Listy/tests.cpp</url>
           <line>785</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Projekt 1 - Listy/ui.cpp</url>
+          <line>114</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
