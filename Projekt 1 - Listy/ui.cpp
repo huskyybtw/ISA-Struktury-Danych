@@ -1,6 +1,5 @@
 #include <iostream>
 #include <windows.h>
-
 #include "ArrayList.h"
 #include "List.h"
 #include "DoublyList.h"
@@ -31,8 +30,8 @@ void printData(ArrayList<int>& alist,
 }
 void printOperations(){
     std::cout << "0 - addFront" << std::endl;
-    std::cout << "1 - addRandom" << std::endl;
-    std::cout << "2 - addEnd" << std::endl;
+    std::cout << "1 - addEnd" << std::endl;
+    std::cout << "2 - addRandom" << std::endl;
     std::cout << "3 - removeRandom" << std::endl;
     std::cout << "4 - removeFront" << std::endl;
     std::cout << "5 - removeEnd" << std::endl;

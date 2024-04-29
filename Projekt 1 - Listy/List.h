@@ -22,8 +22,8 @@ public:
     void addEnd(const T& t); // DODAJE ELEMENT Z KONCA LISTY
     void removeEnd(); // USUWA ELEMENT Z KONCA LISTY
 
-    void addRandom(const T& t); // DODAJE ELEMENT PO LOSOWYM ELEMENCIE
-    void removeRandom(); // USUWA ELEMENT PO LOSOWYM ELEMENCIE
+    void addRandom(const T& t,int random); // DODAJE ELEMENT PO LOSOWYM ELEMENCIE
+    void removeRandom(int random); // USUWA ELEMENT PO LOSOWYM ELEMENCIE
 
     void printList(); // WYPISUJE WYSZTKIE ELEMENTY LISTY
     void printRandom(); // WYPISUJE LOSOWY ELEMENT LISTY

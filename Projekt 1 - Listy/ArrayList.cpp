@@ -20,19 +20,21 @@ ArrayList<T>::~ArrayList(){
 }
 
 template <class T>
-void ArrayList<T>::addRandom(const T &t) { // Dodaje element w losowym miejscu w tablicy
+void ArrayList<T>::addRandom(const T &t,int random) { // Dodaje element w losowym miejscu w tablicy
     if(size == 0){
         this->addFront(t);
     }
+
+    if(random >= size){
+        return;
+    }
+
     try {
         if (needtoresize()) // Sprawdzenie czy trzeba powiekszyc tablice, jesli tak to powieksza 2x
             resize();
     } catch (const std::exception& e) {  // Wylapywanie wyjatkow
         std::cerr << "Wyjątek podczas zmiany rozmiaru tablicy: " << e.what() << std::endl;
     }
-
-    srand(time(nullptr)); // Inicjalizacja generatora liczb pseudo-losowych
-    int random = rand() % size; // Generuje indeks danej liczby z przedzialu 0 do size-1
 
     for (int i = size; i > random; i--){    // Przesuniecie elementow na prawo od wygenerowanego losowo indeksu w celu zrobienia miejsca dla nowej liczby
         data[i] = data[i - 1];
@@ -94,13 +96,16 @@ void ArrayList<T>::removeEnd() {    // Usuniecie elementu ostatniego z tablicy
 }
 
 template <class T>
-void ArrayList<T>::removeRandom() {     // Usuniecie losowego elementu z tablicy
+void ArrayList<T>::removeRandom(int random) {     // Usuniecie losowego elementu z tablicy
     if (size == 0) {
         std::cout << "Tablica jest pusta." << std::endl;
         return;
     }
-    srand(time(nullptr));   // Inicjalizacja generatora
-    int random = rand() % size;         // Generuje indeks danej liczby z przedzialu 0 do size - 1
+
+    if(random >= size){
+        return;
+    }
+
     for( int i = random; i < size - 1; i++){  // Przesuniecie elementow z tablicy po losowej liczbie o jedna pozycje w lewo
         data[i] = data[i + 1];
     }
