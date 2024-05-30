@@ -11,7 +11,7 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="ISA_Struktury_Danych" targetName="ISA_Struktury_Danych" />
+      <config projectName="ISA_Struktury_Danych" targetName="main.cpp" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -20,17 +20,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96b580af-87db-41ee-8188-1ccf76a06b2c" name="Changes" comment="random test fix">
-      <change afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/ArrayPQueue.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/ArrayPQueue.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/PQheap.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/PQheap.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/test.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/test.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ISA-Struktury-Danych.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ISA-Struktury-Danych.iml" afterDir="false" />
+    <list default="true" id="96b580af-87db-41ee-8188-1ccf76a06b2c" name="Changes" comment="KOLEJKI PIORYTETOWE">
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Bucket.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Bucket.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/utilities.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/utilities.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/test.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +67,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2023" />
+    <option name="minorVersion" value="3.4" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -79,6 +84,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "CMake Application.ISA_Struktury_Danych.executor": "Run",
+    "CMake Application.main.cpp.executor": "Run",
     "Python.Generator.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -102,17 +108,18 @@
       <recent name="C:\Users\marek\CLionProjects\ISA-Struktury-Danych\Projekt2 - Kolejki Piorytetowe" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marek\CLionProjects\ISA-Struktury-Danych\Projekt3 - Slowniki" />
       <recent name="C:\Users\marek\CLionProjects\ISA-Struktury-Danych\Projekt2 - Kolejki Piorytetowe" />
       <recent name="C:\Users\marek\CLionProjects\ISA-Struktury-Danych" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.ISA_Struktury_Danych">
-    <configuration name="ISA_Struktury_Danych" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ISA_Struktury_Danych" TARGET_NAME="ISA_Struktury_Danych" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ISA_Struktury_Danych" RUN_TARGET_NAME="ISA_Struktury_Danych">
+  <component name="RunManager" selected="CMake Application.main.cpp">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="main.cpp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ISA_Struktury_Danych" TARGET_NAME="main.cpp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ISA_Struktury_Danych" RUN_TARGET_NAME="main.cpp">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -140,7 +147,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="CMake Application.ISA_Struktury_Danych" />
+      <item itemvalue="CMake Application.main.cpp" />
       <item itemvalue="Python.Generator" />
     </list>
     <recent_temporary>
@@ -172,7 +179,17 @@
       <workItem from="1714374515348" duration="623000" />
       <workItem from="1714375169137" duration="5950000" />
       <workItem from="1715007048562" duration="5500000" />
-      <workItem from="1715014319990" duration="7092000" />
+      <workItem from="1715014319990" duration="9205000" />
+      <workItem from="1715075097006" duration="709000" />
+      <workItem from="1715146200763" duration="7276000" />
+      <workItem from="1715199681498" duration="162000" />
+      <workItem from="1715423780601" duration="10000" />
+      <workItem from="1715769027907" duration="2556000" />
+      <workItem from="1715970485180" duration="677000" />
+      <workItem from="1716026867437" duration="23000" />
+      <workItem from="1716027891913" duration="1225000" />
+      <workItem from="1717075616498" duration="916000" />
+      <workItem from="1717076553221" duration="7419000" />
     </task>
     <task id="LOCAL-00001" summary="Project 1">
       <option name="closed" value="true" />
@@ -206,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713257919677</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="KOLEJKI PIORYTETOWE">
+      <option name="closed" value="true" />
+      <created>1715021497727</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715021497727</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +256,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project 1" />
     <MESSAGE value="random test fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="random test fix" />
+    <MESSAGE value="KOLEJKI PIORYTETOWE" />
+    <option name="LAST_COMMIT_MESSAGE" value="KOLEJKI PIORYTETOWE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -62,9 +62,6 @@ int seeds[50] = {
         343179,
 };
 int main() {
-
-    int amount = 1000;
-    std::cout << generatorTestArray(3,seeds,5,amount)<< std::endl;
-    std::cout << generatorTestHeap(3,seeds,5,amount)<< std::endl;
+    generatorTestHeap(0,seeds,3,100000);
     return 0;
 }

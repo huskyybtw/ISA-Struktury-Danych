@@ -106,7 +106,7 @@ double generatorTestHeap(int operation,int* seeds,int seedsSize,int amount){
             }
             auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> duration = end - start;
-            //std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
+            std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
             seedData += duration.count();
 
             delete queue;
