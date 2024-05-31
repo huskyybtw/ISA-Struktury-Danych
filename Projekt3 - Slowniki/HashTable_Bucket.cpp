@@ -10,6 +10,7 @@ HashTable_Bucket::~HashTable_Bucket() {
     delete[] array;
 }
 
+
 void HashTable_Bucket::resize() {
     int oldSize = size;
     size = size*2;
@@ -19,7 +20,7 @@ void HashTable_Bucket::resize() {
     for (int i = 0; i < oldSize; ++i) {
         for (const auto& entry : array[i]) {
             int hashedKey = hashCode(entry.key);
-            newArray[hashedKey].push_back(entry);
+            newArray[hashedKey].push_front(entry);
         }
     }
 

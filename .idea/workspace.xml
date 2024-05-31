@@ -11,7 +11,7 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="ISA_Struktury_Danych" targetName="main.cpp" />
+      <config projectName="ISA_Struktury_Danych" targetName="HashTable.h" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -20,17 +20,19 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96b580af-87db-41ee-8188-1ccf76a06b2c" name="Changes" comment="KOLEJKI PIORYTETOWE">
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Bucket.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Bucket.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/utilities.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/utilities.h" afterDir="false" />
+    <list default="true" id="96b580af-87db-41ee-8188-1ccf76a06b2c" name="Changes" comment="Słowniki setup&#10;-HashTable public interface&#10;-Hashtable_Bucket">
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Cuckoo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Cuckoo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Open.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Open.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/tests.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/tests.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Bucket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Bucket.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Bucket.h" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Bucket.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,28 +83,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "CMake Application.ISA_Struktury_Danych.executor": "Run",
-    "CMake Application.main.cpp.executor": "Run",
-    "Python.Generator.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/marek/CLionProjects/ISA-Struktury-Danych/Projekt2 - Kolejki Piorytetowe",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;CMake Application.HashTable.h.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.ISA_Struktury_Danych.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.main.cpp.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Generator.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/marek/CLionProjects/ISA-Struktury-Danych/Projekt2 - Kolejki Piorytetowe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\marek\CLionProjects\ISA-Struktury-Danych\Projekt2 - Kolejki Piorytetowe" />
@@ -113,13 +116,13 @@
       <recent name="C:\Users\marek\CLionProjects\ISA-Struktury-Danych" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.main.cpp">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+  <component name="RunManager" selected="CMake Application.HashTable.h">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main.cpp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ISA_Struktury_Danych" TARGET_NAME="main.cpp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ISA_Struktury_Danych" RUN_TARGET_NAME="main.cpp">
+    <configuration name="HashTable.h" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ISA_Struktury_Danych" TARGET_NAME="HashTable.h" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ISA_Struktury_Danych" RUN_TARGET_NAME="HashTable.h">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -147,7 +150,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="CMake Application.main.cpp" />
+      <item itemvalue="CMake Application.HashTable.h" />
       <item itemvalue="Python.Generator" />
     </list>
     <recent_temporary>
@@ -189,7 +192,11 @@
       <workItem from="1716026867437" duration="23000" />
       <workItem from="1716027891913" duration="1225000" />
       <workItem from="1717075616498" duration="916000" />
-      <workItem from="1717076553221" duration="7419000" />
+      <workItem from="1717076553221" duration="8008000" />
+      <workItem from="1717087403983" duration="164000" />
+      <workItem from="1717098888147" duration="5193000" />
+      <workItem from="1717104110737" duration="2549000" />
+      <workItem from="1717146001445" duration="6362000" />
     </task>
     <task id="LOCAL-00001" summary="Project 1">
       <option name="closed" value="true" />
@@ -231,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715021497727</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Słowniki setup&#10;-HashTable public interface&#10;-Hashtable_Bucket">
+      <option name="closed" value="true" />
+      <created>1717086861551</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1717086861552</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +272,8 @@
     <MESSAGE value="Project 1" />
     <MESSAGE value="random test fix" />
     <MESSAGE value="KOLEJKI PIORYTETOWE" />
-    <option name="LAST_COMMIT_MESSAGE" value="KOLEJKI PIORYTETOWE" />
+    <MESSAGE value="Słowniki setup&#10;-HashTable public interface&#10;-Hashtable_Bucket" />
+    <option name="LAST_COMMIT_MESSAGE" value="Słowniki setup&#10;-HashTable public interface&#10;-Hashtable_Bucket" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

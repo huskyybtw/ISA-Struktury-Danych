@@ -1,6 +1,5 @@
 #ifndef ISA_STRUKTURY_DANYCH_HASHTABLE_H
 #define ISA_STRUKTURY_DANYCH_HASHTABLE_H
-#include <list>
 
 class HashTable {
 public:

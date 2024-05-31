@@ -1,29 +1,27 @@
 //
-// Created by marek on 30.05.2024.
+// Created by marek on 31.05.2024.
 //
 
-#ifndef ISA_STRUKTURY_DANYCH_HASHTABLE_BUCKET_H
-#define ISA_STRUKTURY_DANYCH_HASHTABLE_BUCKET_H
-
+#ifndef ISA_STRUKTURY_DANYCH_HASHTABLE_OPEN_H
+#define ISA_STRUKTURY_DANYCH_HASHTABLE_OPEN_H
 #include "HashTable.h"
-#include <list>
 
-class HashTable_Bucket : public HashTable {
+class HashTable_Open : public HashTable {
 private:
     struct Entry{
         int key;
         int value;
     };
-
     int size;
     int count;
-    std::list<Entry>* array;
+
     int hashCode(int key);
     void resize();
 
+    // DO THE REST
 public:
-    HashTable_Bucket();
-    ~HashTable_Bucket();
+    HashTable_Open();
+    ~HashTable_Open();
 
     int getSize() override;
     void insert(int key,int value) override;
@@ -33,4 +31,4 @@ public:
 };
 
 
-#endif //ISA_STRUKTURY_DANYCH_HASHTABLE_BUCKET_H
+#endif //ISA_STRUKTURY_DANYCH_HASHTABLE_OPEN_H
