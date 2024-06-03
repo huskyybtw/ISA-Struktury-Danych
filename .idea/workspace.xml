@@ -21,18 +21,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96b580af-87db-41ee-8188-1ccf76a06b2c" name="Changes" comment="Słowniki setup&#10;-HashTable public interface&#10;-Hashtable_Bucket">
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Cuckoo.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Cuckoo.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Open.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Open.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/tests.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/tests.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Bucket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Bucket.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Bucket.h" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Bucket.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt 1 - Listy/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt 1 - Listy/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt 1 - Listy/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt 1 - Listy/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/ArrayPQueue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/ArrayPQueue.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Cuckoo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Cuckoo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Open.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Open.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Open.h" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Open.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,11 +116,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.HashTable.h">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="HashTable.h" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ISA_Struktury_Danych" TARGET_NAME="HashTable.h" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ISA_Struktury_Danych" RUN_TARGET_NAME="HashTable.h">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -197,6 +191,7 @@
       <workItem from="1717098888147" duration="5193000" />
       <workItem from="1717104110737" duration="2549000" />
       <workItem from="1717146001445" duration="6362000" />
+      <workItem from="1717362239720" duration="5136000" />
     </task>
     <task id="LOCAL-00001" summary="Project 1">
       <option name="closed" value="true" />

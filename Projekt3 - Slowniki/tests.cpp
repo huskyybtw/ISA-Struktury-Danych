@@ -16,6 +16,7 @@ std::vector<int> Generator(int seed,int amount){
         int randPrio = distrib(gen);
         numbers.push_back(randPrio);
     }
+    return numbers;
 }
 
 double test_Bucket(int operation,int* seeds,int seedsSize,int amount,int times){

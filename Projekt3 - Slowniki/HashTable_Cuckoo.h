@@ -2,6 +2,7 @@
 #define ISA_STRUKTURY_DANYCH_HASHTABLE_CUCKOO_H
 
 #include "HashTable.h"
+#include <climits>
 
 class HashTable_Cuckoo : public HashTable {
 private:

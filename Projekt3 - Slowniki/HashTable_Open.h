@@ -1,6 +1,3 @@
-//
-// Created by marek on 31.05.2024.
-//
 
 #ifndef ISA_STRUKTURY_DANYCH_HASHTABLE_OPEN_H
 #define ISA_STRUKTURY_DANYCH_HASHTABLE_OPEN_H
@@ -12,13 +9,15 @@ private:
         int key;
         int value;
     };
+
+    Entry* table;
     int size;
     int count;
 
     int hashCode(int key);
     void resize();
 
-    // DO THE REST
+
 public:
     HashTable_Open();
     ~HashTable_Open();

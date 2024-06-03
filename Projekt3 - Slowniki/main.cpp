@@ -2,6 +2,7 @@
 #include "HashTable_Bucket.h"
 #include "HashTable.h"
 #include "HashTable_Cuckoo.h"
+#include "HashTable_Open.h"
 #include <random>
 
 int seeds[50] = {
@@ -56,6 +57,34 @@ int seeds[50] = {
         340315,
         343179,
 };
-int main (){
+int main () {
     int seedsSize = sizeof(seeds) / sizeof(seeds[0]);
+
+    HashTable_Open table;
+
+    table.insert(-1, 100);
+    table.insert(2, 400);
+    table.insert(3, 500);
+    table.insert(4, 600);
+    table.insert(13, 50100);
+    table.insert(15, 50040);
+    table.insert(3461, 50300);
+    table.insert(31, 50200);
+    table.insert(51, 50003);
+    table.insert(856, 50400);
+    table.insert(61, 50030);
+    table.insert(151, 5060);
+    table.insert(141, 5060);
+    table.insert(121, 54000);
+    table.insert(171, 50400);
+
+    table.remove(171);
+    table.remove(3);
+
+    table.print();
+
+
+
+
+    return 0;
 }
