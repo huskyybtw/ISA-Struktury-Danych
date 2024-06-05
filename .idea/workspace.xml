@@ -20,16 +20,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96b580af-87db-41ee-8188-1ccf76a06b2c" name="Changes" comment="Słowniki setup&#10;-HashTable public interface&#10;-Hashtable_Bucket">
+    <list default="true" id="96b580af-87db-41ee-8188-1ccf76a06b2c" name="Changes" comment="HashTable_Open chyba w pełni działa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projekt 1 - Listy/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt 1 - Listy/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projekt 1 - Listy/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt 1 - Listy/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/ArrayPQueue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/ArrayPQueue.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt2 - Kolejki Piorytetowe/test.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Cuckoo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Cuckoo.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Open.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Open.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Open.h" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/HashTable_Open.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projekt3 - Slowniki/tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt3 - Slowniki/tests.cpp" afterDir="false" />
     </list>
@@ -58,11 +56,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="main" />
-      </list>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Sabbath0&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="79942c0e-fe22-47db-b707-33b51b070e34" />
+        <option name="url" value="https://github.com/huskyybtw/ISA-Struktury-Danych" />
+      </UrlAndAccount>
     </option>
   </component>
   <component name="MarkdownSettingsMigration">
@@ -102,6 +107,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -191,7 +197,9 @@
       <workItem from="1717098888147" duration="5193000" />
       <workItem from="1717104110737" duration="2549000" />
       <workItem from="1717146001445" duration="6362000" />
-      <workItem from="1717362239720" duration="5136000" />
+      <workItem from="1717362239720" duration="5612000" />
+      <workItem from="1717531903873" duration="7769000" />
+      <workItem from="1717566583608" duration="6919000" />
     </task>
     <task id="LOCAL-00001" summary="Project 1">
       <option name="closed" value="true" />
@@ -241,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717086861552</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="HashTable_Open chyba w pełni działa">
+      <option name="closed" value="true" />
+      <created>1717396929601</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717396929601</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +284,8 @@
     <MESSAGE value="random test fix" />
     <MESSAGE value="KOLEJKI PIORYTETOWE" />
     <MESSAGE value="Słowniki setup&#10;-HashTable public interface&#10;-Hashtable_Bucket" />
-    <option name="LAST_COMMIT_MESSAGE" value="Słowniki setup&#10;-HashTable public interface&#10;-Hashtable_Bucket" />
+    <MESSAGE value="HashTable_Open chyba w pełni działa" />
+    <option name="LAST_COMMIT_MESSAGE" value="HashTable_Open chyba w pełni działa" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

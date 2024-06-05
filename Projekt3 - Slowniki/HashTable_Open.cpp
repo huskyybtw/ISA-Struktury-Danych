@@ -15,7 +15,7 @@ HashTable_Open::~HashTable_Open() { //Destruktor
 }
 
 int HashTable_Open::hashCode(int key) { //Funckja hashujaca
-    return key % size;
+    return abs(key) % size; //wartosc nieujemna
 }
 
 void HashTable_Open::resize() { //Powiekszenie tablicy
@@ -70,7 +70,7 @@ int HashTable_Open::find(int key) { //Znalezienie elementu wg klucza
             break;  // zapobiega zapetleniu
         }
     }
-    throw std::runtime_error("Klucz nie znaleziony");
+    return INT_MIN; // Key not found
 }
 
 void HashTable_Open::remove(int key) {  //Usuniecie elementu z tablicy

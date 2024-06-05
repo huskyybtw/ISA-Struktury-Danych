@@ -10,7 +10,7 @@
 std::vector<int> Generator(int seed,int amount){
     std::vector<int> numbers;
     std::mt19937 gen(seed);
-    std::uniform_int_distribution<> distrib(INT_MIN+1,INT_MAX);
+    std::uniform_int_distribution<> distrib(INT_MIN/64,INT_MAX/64);
 
     for (int i = 0; i < amount; ++i) {
         int randPrio = distrib(gen);
@@ -44,13 +44,13 @@ double test_Bucket(int operation,int* seeds,int seedsSize,int amount,int times){
             auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> duration = end - start;
             avg += duration.count();
-            std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
+            //std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
             delete virt;
         }
         avg = avg/times;
         result += avg;
 
-        std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << avg << std::endl;
+        //std::cout << "Srednia" << " " << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << avg << std::endl;
     }
     return result / seedsSize;
 }
@@ -80,13 +80,13 @@ double test_Cuckoo(int operation,int* seeds,int seedsSize,int amount,int times){
             auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> duration = end - start;
             avg += duration.count();
-            std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
+            //std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
             delete virt;
         }
         avg = avg/times;
         result += avg;
 
-        std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << avg << std::endl;
+        //std::cout << "Srednia" << " " << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << avg << std::endl;
         avg = 0;
     }
     return result / seedsSize;
@@ -117,13 +117,13 @@ double test_Open(int operation,int* seeds,int seedsSize,int amount,int times){
             auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> duration = end - start;
             avg += duration.count();
-            std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
+            //std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << duration.count() << std::endl;
             delete virt;
         }
         avg = avg/times;
         result += avg;
 
-        std::cout << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << avg << std::endl;
+        //std::cout << "Srednia" << " " << "SEED :" << seeds[i] << " ELEM :" << amount << " TIME : " << avg << std::endl;
         avg = 0;
     }
     return result / seedsSize;
